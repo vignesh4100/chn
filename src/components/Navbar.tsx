@@ -19,16 +19,7 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { 
-      name: 'About', 
-      path: '/about',
-      dropdown: [
-        { name: 'Company Overview', path: '/about#overview' },
-        { name: 'Vision & Mission', path: '/about#vision' },
-        { name: 'Core Values', path: '/about#values' },
-        { name: 'Leadership Team', path: '/about#team' }
-      ]
-    },
+    { name: 'About', path: '/about' },
     { 
       name: 'Services', 
       path: '/services',
