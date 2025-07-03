@@ -469,7 +469,7 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
+      {/* Bottom CTA Section with Images */}
       <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
@@ -481,33 +481,160 @@ const Contact: React.FC = () => {
           <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-12">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Star className="w-8 h-8 text-cyan-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Let's Start Something Great
-              </h2>
-              <Star className="w-8 h-8 text-purple-400" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content Side */}
+            <div className="text-center lg:text-left">
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 lg:p-12">
+                <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
+                  <Star className="w-8 h-8 text-cyan-400" />
+                  <h2 className="text-4xl md:text-5xl font-bold text-white">
+                    Let's Start Something Great
+                  </h2>
+                </div>
+                
+                <p className="text-xl text-slate-200 mb-8 leading-relaxed">
+                  From software development to workforce consulting, we partner with businesses across industries 
+                  to deliver solutions that create measurable impact.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
+                    <Calendar className="w-5 h-5" />
+                    <span>Book a Free Consultation</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  
+                  <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                    <Target className="w-5 h-5" />
+                    <span>Explore Our Services</span>
+                  </button>
+                </div>
+              </div>
             </div>
-            
-            <p className="text-xl text-slate-200 mb-8 leading-relaxed">
-              From software development to workforce consulting, we partner with businesses across industries 
-              to deliver solutions that create measurable impact.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center justify-center gap-2">
-                <Calendar className="w-5 h-5" />
-                <span>Book a Free Consultation</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                <Target className="w-5 h-5" />
-                <span>Explore Our Services</span>
-              </button>
+
+            {/* Image Side */}
+            <div className="relative">
+              {/* Main Professional Image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                <img
+                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                  alt="Professional team collaboration and technology solutions"
+                  className="w-full h-96 object-cover"
+                />
+                
+                {/* Overlay with gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                
+                {/* Floating Badge */}
+                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 flex items-center gap-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-gray-900 font-semibold text-sm">Available 24/7</span>
+                </div>
+                
+                {/* Bottom Stats Overlay */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-white">500+</div>
+                      <div className="text-white/80 text-xs">Projects</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-white">98%</div>
+                      <div className="text-white/80 text-xs">Success</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-white">24/7</div>
+                      <div className="text-white/80 text-xs">Support</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Secondary Images */}
+              <div className="absolute -top-8 -right-8 w-32 h-32 rounded-2xl overflow-hidden shadow-xl transform rotate-12 hover:rotate-6 transition-transform duration-300">
+                <img
+                  src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+                  alt="Technology innovation and digital transformation"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-purple-500/20"></div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-2xl overflow-hidden shadow-xl transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
+                <img
+                  src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+                  alt="Business consulting and strategic planning"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
+              </div>
+
+              {/* Decorative SVG Elements */}
+              <div className="absolute top-1/2 -right-12 transform -translate-y-1/2">
+                <svg width="80" height="80" viewBox="0 0 80 80" className="text-cyan-400/30 animate-spin-slow">
+                  <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="10 5" />
+                  <circle cx="40" cy="40" r="20" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="5 3" />
+                  <circle cx="40" cy="40" r="5" fill="currentColor" />
+                </svg>
+              </div>
+
+              <div className="absolute bottom-1/4 -left-12">
+                <svg width="60" height="60" viewBox="0 0 60 60" className="text-purple-400/30 animate-pulse">
+                  <polygon points="30,5 55,50 5,50" fill="none" stroke="currentColor" strokeWidth="2" />
+                  <polygon points="30,15 45,40 15,40" fill="none" stroke="currentColor" strokeWidth="1" />
+                  <circle cx="30" cy="30" r="3" fill="currentColor" />
+                </svg>
+              </div>
+
+              {/* Glowing Dots */}
+              <div className="absolute top-16 left-16 w-4 h-4 bg-cyan-400 rounded-full animate-ping opacity-60"></div>
+              <div className="absolute bottom-16 right-16 w-3 h-3 bg-purple-400 rounded-full animate-ping opacity-60" style={{ animationDelay: '1s' }}></div>
             </div>
+          </div>
+
+          {/* Additional Visual Elements */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              {
+                image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+                title: "AI Solutions",
+                description: "Cutting-edge artificial intelligence"
+              },
+              {
+                image: "https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+                title: "Cloud Services",
+                description: "Scalable cloud infrastructure"
+              },
+              {
+                image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+                title: "Data Analytics",
+                description: "Intelligent business insights"
+              },
+              {
+                image: "https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop",
+                title: "Digital Transform",
+                description: "Complete business evolution"
+              }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="relative h-32 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+                <div className="p-4">
+                  <h4 className="text-white font-semibold mb-1">{item.title}</h4>
+                  <p className="text-slate-400 text-sm">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
