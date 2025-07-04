@@ -8,6 +8,7 @@ import ITInfrastructure from './pages/ITInfrastructure';
 import NetworkManagement from './pages/NetworkManagement';
 import EndUserComputing from './pages/EndUserComputing';
 import CyberSecurity from './pages/CyberSecurity';
+import ServerAdministration from './pages/ServerAdministration';
 import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/network-management" element={<NetworkManagement />} />
           <Route path="/end-user-computing" element={<EndUserComputing />} />
           <Route path="/cyber-security" element={<CyberSecurity />} />
+          <Route path="/server-administration" element={<ServerAdministration />} />
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/consulting/workforce" element={<Consulting />} />
           <Route path="/consulting/payroll" element={<Consulting />} />
