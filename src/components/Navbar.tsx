@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
                         : 'text-cyan-300 bg-white/10'
                       : isScrolled
                         ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                        : 'text-white hover:text-cyan-300 hover:bg-white/10'
                   }`}
                 >
                   {item.name}
