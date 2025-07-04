@@ -13,6 +13,7 @@ import LANCablingSurveillance from './pages/LANCablingSurveillance';
 import SoftwareSolutions from './pages/SoftwareSolutions';
 import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
+import WebDesignDevelopment from './pages/WebDesignDevelopment';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/technology/infrastructure" element={<ITInfrastructure />} />
           <Route path="/technology/software" element={<SoftwareSolutions />} />
           <Route path="/technology/digital" element={<Technology />} />
+          <Route path="/web-design-development" element={<WebDesignDevelopment />} />
           <Route path="/network-management" element={<NetworkManagement />} />
           <Route path="/end-user-computing" element={<EndUserComputing />} />
           <Route path="/cyber-security" element={<CyberSecurity />} />
