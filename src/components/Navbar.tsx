@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
   const handleMegaMenuLeave = () => {
     const timeout = setTimeout(() => {
       setActiveMegaMenu(null);
-    }, 300); // Increased delay for better UX
+    }, 150); // Small delay to allow cursor movement
     setMegaMenuTimeout(timeout);
   };
 
@@ -240,13 +240,6 @@ const Navbar: React.FC = () => {
           <div 
             className="absolute inset-0 bg-black/20 backdrop-blur-sm"
             onClick={closeMegaMenu}
-          />
-          
-          {/* Hover Bridge - Invisible area between navbar and megamenu */}
-          <div 
-            className="absolute top-16 left-0 right-0 h-8"
-            onMouseEnter={handleMegaMenuContentEnter}
-            onMouseLeave={handleMegaMenuContentLeave}
           />
           
           {/* Mega Menu Content */}
