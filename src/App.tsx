@@ -18,7 +18,6 @@ import ApplicationDevelopment from './pages/ApplicationDevelopment';
 import DigitalSolutions from './pages/DigitalSolutions';
 import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
-import WorkforceManagement from './pages/WorkforceManagement';
 
 function App() {
   return (
@@ -34,7 +33,6 @@ function App() {
           <Route path="/technology/digital" element={<DigitalSolutions />} />
           <Route path="/web-design-development" element={<WebDesignDevelopment />} />
           <Route path="/application-development" element={<ApplicationDevelopment />} />
-          <Route path="/consulting/workforce" element={<WorkforceManagement />} />
           <Route path="/data-analytics-visualization" element={<DataAnalyticsVisualization />} />
           <Route path="/automation-digital-transformation" element={<AutomationDigitalTransformation />} />
           <Route path="/network-management" element={<NetworkManagement />} />
