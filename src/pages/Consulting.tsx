@@ -133,7 +133,6 @@ const Consulting: React.FC = () => {
                     ))}
                   </div>
                   
-                  <button className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}>
                   <a
                     href={service.link}
                     className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}
