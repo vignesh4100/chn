@@ -6,6 +6,7 @@ import About from './pages/About';
 import Technology from './pages/Technology';
 import ITInfrastructure from './pages/ITInfrastructure';
 import NetworkManagement from './pages/NetworkManagement';
+import EndUserComputing from './pages/EndUserComputing';
 import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/technology/software" element={<Technology />} />
           <Route path="/technology/digital" element={<Technology />} />
           <Route path="/network-management" element={<NetworkManagement />} />
+          <Route path="/end-user-computing" element={<EndUserComputing />} />
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/consulting/workforce" element={<Consulting />} />
           <Route path="/consulting/payroll" element={<Consulting />} />
