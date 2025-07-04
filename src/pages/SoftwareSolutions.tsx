@@ -44,57 +44,21 @@ const SoftwareSolutions: React.FC = () => {
   const coreServices = [
     {
       icon: Monitor,
-      title: 'Web Application Development',
-      description: 'Build modern, secure, and scalable web apps using cutting-edge technologies.',
-      link: '/web-development',
+      title: 'Web Design & Development',
+      description: 'Create stunning, responsive websites and web applications that engage users and drive business growth.',
+      link: '/web-design-development',
       color: 'from-blue-500 to-cyan-600',
       bgColor: 'from-blue-500/10 to-cyan-600/10',
-      features: ['React/Angular/Vue.js', 'Responsive Design', 'API Integration', 'Performance Optimization']
+      features: ['Custom Web Design', 'Responsive Development', 'E-commerce Solutions', 'CMS Integration', 'SEO Optimization', 'Performance Optimization']
     },
     {
-      icon: Smartphone,
-      title: 'Mobile App Development',
-      description: 'iOS, Android, and cross-platform mobile solutions to power customer engagement or internal tools.',
-      link: '/mobile-app-development',
+      icon: Code,
+      title: 'Application Development',
+      description: 'Build powerful desktop, mobile, and web applications tailored to your specific business requirements.',
+      link: '/application-development',
       color: 'from-purple-500 to-pink-600',
       bgColor: 'from-purple-500/10 to-pink-600/10',
-      features: ['Native iOS/Android', 'React Native', 'Flutter', 'Cross-platform']
-    },
-    {
-      icon: Cloud,
-      title: 'SaaS Development',
-      description: 'We build subscription-based SaaS platforms — MVPs to full-scale enterprise solutions.',
-      link: '/saas-development',
-      color: 'from-green-500 to-teal-600',
-      bgColor: 'from-green-500/10 to-teal-600/10',
-      features: ['Multi-tenant Architecture', 'Subscription Management', 'Scalable Infrastructure', 'Analytics Dashboard']
-    },
-    {
-      icon: Workflow,
-      title: 'Business Process Automation',
-      description: 'Automate your repetitive tasks and improve efficiency with custom workflow software.',
-      link: '/automation',
-      color: 'from-orange-500 to-red-600',
-      bgColor: 'from-orange-500/10 to-red-600/10',
-      features: ['Workflow Automation', 'Process Optimization', 'Integration Solutions', 'Custom Workflows']
-    },
-    {
-      icon: GitBranch,
-      title: 'System Integration & API Development',
-      description: 'Connect your existing tools and platforms securely with custom APIs.',
-      link: '/api-development',
-      color: 'from-indigo-500 to-purple-600',
-      bgColor: 'from-indigo-500/10 to-purple-600/10',
-      features: ['RESTful APIs', 'GraphQL', 'Third-party Integration', 'Microservices']
-    },
-    {
-      icon: BarChart3,
-      title: 'Analytics & Dashboards',
-      description: 'Get business intelligence tools and data dashboards that drive decisions.',
-      link: '/data-visualization',
-      color: 'from-emerald-500 to-green-600',
-      bgColor: 'from-emerald-500/10 to-green-600/10',
-      features: ['Real-time Analytics', 'Custom Dashboards', 'Data Visualization', 'Business Intelligence']
+      features: ['Desktop Applications', 'Mobile Apps (iOS/Android)', 'Web Applications', 'Cross-platform Solutions', 'API Integration', 'Database Design']
     }
   ];
 
@@ -357,29 +321,15 @@ const SoftwareSolutions: React.FC = () => {
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
                       <Monitor className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Web Apps</h4>
-                    <p className="text-gray-600 text-sm">Modern & responsive</p>
+                    <h4 className="font-semibold text-gray-900 mb-2">Web Design</h4>
+                    <p className="text-gray-600 text-sm">Beautiful & responsive</p>
                   </div>
                   <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                      <Smartphone className="w-6 h-6 text-white" />
+                      <Code className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Mobile Apps</h4>
-                    <p className="text-gray-600 text-sm">iOS & Android</p>
-                  </div>
-                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                      <Cloud className="w-6 h-6 text-white" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">SaaS Platforms</h4>
-                    <p className="text-gray-600 text-sm">Scalable solutions</p>
-                  </div>
-                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
-                      <Workflow className="w-6 h-6 text-white" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Automation</h4>
-                    <p className="text-gray-600 text-sm">Process optimization</p>
+                    <h4 className="font-semibold text-gray-900 mb-2">Applications</h4>
+                    <p className="text-gray-600 text-sm">Custom solutions</p>
                   </div>
                 </div>
               </div>
@@ -416,7 +366,7 @@ const SoftwareSolutions: React.FC = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {coreServices.map((service, index) => (
               <div
                 key={index}
@@ -442,7 +392,7 @@ const SoftwareSolutions: React.FC = () => {
 
                   {/* Features List */}
                   <div className={`space-y-2 mb-6 transition-all duration-500 ${
-                    hoveredService === index ? 'opacity-100 max-h-32' : 'opacity-70 max-h-20 overflow-hidden'
+                    hoveredService === index ? 'opacity-100 max-h-40' : 'opacity-70 max-h-24 overflow-hidden'
                   }`}>
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center gap-2">
