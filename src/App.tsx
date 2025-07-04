@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Technology from './pages/Technology';
+import ITInfrastructure from './pages/ITInfrastructure';
 import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
 
@@ -16,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="/technology/infrastructure" element={<Technology />} />
+          <Route path="/technology/infrastructure" element={<ITInfrastructure />} />
           <Route path="/technology/software" element={<Technology />} />
           <Route path="/technology/digital" element={<Technology />} />
           <Route path="/consulting" element={<Consulting />} />
