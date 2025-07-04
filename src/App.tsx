@@ -15,6 +15,7 @@ import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
 import WebDesignDevelopment from './pages/WebDesignDevelopment';
 import ApplicationDevelopment from './pages/ApplicationDevelopment';
+import DigitalSolutions from './pages/DigitalSolutions';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
           <Route path="/technology" element={<Technology />} />
           <Route path="/technology/infrastructure" element={<ITInfrastructure />} />
           <Route path="/technology/software" element={<SoftwareSolutions />} />
-          <Route path="/technology/digital" element={<Technology />} />
+          <Route path="/technology/digital" element={<DigitalSolutions />} />
           <Route path="/web-design-development" element={<WebDesignDevelopment />} />
           <Route path="/application-development" element={<ApplicationDevelopment />} />
           <Route path="/network-management" element={<NetworkManagement />} />
