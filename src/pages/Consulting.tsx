@@ -17,27 +17,30 @@ const Consulting: React.FC = () => {
   const consultingServices = [
     {
       icon: Users,
-      title: 'Workforce Management',
+      title: 'Workforce Management Consulting',
       description: 'Strategic workforce planning and optimization solutions',
       features: ['Talent Acquisition', 'Performance Management', 'Employee Engagement', 'Workforce Analytics'],
       color: 'from-cyan-500 to-blue-600',
-      bgColor: 'from-cyan-500/10 to-blue-600/10'
+      bgColor: 'from-cyan-500/10 to-blue-600/10',
+      link: '/consulting/workforce'
     },
     {
       icon: Calculator,
-      title: 'Payroll & Compliance',
+      title: 'Payroll & Compliance Consulting',
       description: 'Comprehensive payroll processing and regulatory compliance',
       features: ['Payroll Processing', 'Tax Compliance', 'Benefits Administration', 'Regulatory Updates'],
       color: 'from-purple-500 to-pink-600',
-      bgColor: 'from-purple-500/10 to-pink-600/10'
+      bgColor: 'from-purple-500/10 to-pink-600/10',
+      link: '/consulting/payroll'
     },
     {
       icon: GraduationCap,
-      title: 'Training & Development',
+      title: 'Training & Development Consulting',
       description: 'Professional development and skill enhancement programs',
       features: ['Skills Assessment', 'Custom Training', 'Leadership Development', 'Certification Programs'],
       color: 'from-green-500 to-teal-600',
-      bgColor: 'from-green-500/10 to-teal-600/10'
+      bgColor: 'from-green-500/10 to-teal-600/10',
+      link: '/consulting/training'
     }
   ];
 
@@ -131,9 +134,13 @@ const Consulting: React.FC = () => {
                   </div>
                   
                   <button className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}>
+                  <a
+                    href={service.link}
+                    className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}
+                  >
                     <span>Learn More</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
