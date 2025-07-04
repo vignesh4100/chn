@@ -6,7 +6,6 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
-  const [megaMenuTimeout, setMegaMenuTimeout] = useState<NodeJS.Timeout | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,9 +17,9 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
+  // Prevent background scroll when mobile menu or mega menu is open
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen || activeMegaMenu) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -30,7 +29,7 @@ const Navbar: React.FC = () => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen, activeMegaMenu]);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -104,32 +103,11 @@ const Navbar: React.FC = () => {
   };
 
   const handleMegaMenuEnter = (itemName: string) => {
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout);
-      setMegaMenuTimeout(null);
-    }
     setActiveMegaMenu(itemName);
   };
 
   const handleMegaMenuLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveMegaMenu(null);
-    }, 150); // Small delay to allow cursor movement
-    setMegaMenuTimeout(timeout);
-  };
-
-  const handleMegaMenuContentEnter = () => {
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout);
-      setMegaMenuTimeout(null);
-    }
-  };
-
-  const handleMegaMenuContentLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveMegaMenu(null);
-    }, 150);
-    setMegaMenuTimeout(timeout);
+    setActiveMegaMenu(null);
   };
 
   const closeMobileMenu = () => {
@@ -138,10 +116,6 @@ const Navbar: React.FC = () => {
 
   const closeMegaMenu = () => {
     setActiveMegaMenu(null);
-    if (megaMenuTimeout) {
-      clearTimeout(megaMenuTimeout);
-      setMegaMenuTimeout(null);
-    }
   };
 
   return (
@@ -233,89 +207,77 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mega Menu */}
+      {/* Mega Menu Overlay */}
       {activeMegaMenu && (
-        <div className="fixed inset-0 z-40 lg:block hidden">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
-            onClick={closeMegaMenu}
-          />
-          
-          {/* Mega Menu Content */}
-          <div 
-            className="absolute top-20 left-0 right-0"
-            onMouseEnter={handleMegaMenuContentEnter}
-            onMouseLeave={handleMegaMenuContentLeave}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="bg-white rounded-3xl shadow-2xl shadow-gray-900/20 border border-gray-100 max-h-[80vh] overflow-y-auto">
-                <div className="p-8">
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-2">
-                      {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.title}
-                    </h3>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
-                      {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.subtitle}
-                    </p>
-                    <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
-                  </div>
+        <div 
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+          onClick={closeMegaMenu}
+        >
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-screen max-w-7xl bg-white rounded-3xl shadow-2xl shadow-gray-900/20 animate-fade-in-up mx-4 border border-gray-100">
+            <div className="p-10">
+              {/* Header */}
+              <div className="text-center mb-10">
+                <h3 className="text-4xl font-bold text-gray-900 mb-3">
+                  {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.title}
+                </h3>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.subtitle}
+                </p>
+                <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-6 rounded-full"></div>
+              </div>
 
-                  {/* Divisions Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.divisions.map((division, divIndex) => (
-                      <div key={divIndex} className="group/division">
-                        {/* Division Card */}
-                        <div className={`bg-gradient-to-br ${division.bgColor} border border-gray-100 rounded-2xl p-5 h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
-                          {/* Division Header */}
-                          <div className="text-center mb-5">
-                            <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${division.color} rounded-2xl mb-3 group-hover/division:scale-110 transition-transform duration-300 shadow-lg`}>
-                              <division.icon className="w-7 h-7 text-white" />
-                            </div>
-                            <h4 className="text-lg font-bold text-gray-900 mb-2">{division.title}</h4>
-                            <div className={`w-10 h-0.5 bg-gradient-to-r ${division.color} mx-auto rounded-full`}></div>
-                          </div>
-
-                          {/* Services List */}
-                          <div className="space-y-2">
-                            {division.services.map((service, serviceIndex) => (
-                              <Link
-                                key={serviceIndex}
-                                to={service.path}
-                                className="group/service flex items-center gap-3 p-3 rounded-xl bg-white/60 hover:bg-white hover:shadow-md transition-all duration-200 border border-transparent hover:border-gray-200"
-                                onClick={closeMegaMenu}
-                              >
-                                <div className={`w-8 h-8 bg-gradient-to-r ${division.color} rounded-lg flex items-center justify-center group-hover/service:scale-110 transition-transform duration-200 shadow-sm`}>
-                                  <service.icon className="w-4 h-4 text-white" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <span className="text-gray-800 group-hover/service:text-gray-900 font-semibold text-sm transition-colors duration-200 leading-tight block">
-                                    {service.name}
-                                  </span>
-                                </div>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover/service:text-gray-600 opacity-0 group-hover/service:opacity-100 transform translate-x-2 group-hover/service:translate-x-0 transition-all duration-200 flex-shrink-0" />
-                              </Link>
-                            ))}
-                          </div>
+              {/* Divisions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.divisions.map((division, divIndex) => (
+                  <div key={divIndex} className="group/division">
+                    {/* Division Card */}
+                    <div className={`bg-gradient-to-br ${division.bgColor} border border-gray-100 rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}>
+                      {/* Division Header */}
+                      <div className="text-center mb-6">
+                        <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${division.color} rounded-2xl mb-4 group-hover/division:scale-110 transition-transform duration-300 shadow-lg`}>
+                          <division.icon className="w-8 h-8 text-white" />
                         </div>
+                        <h4 className="text-xl font-bold text-gray-900 mb-2">{division.title}</h4>
+                        <div className={`w-12 h-0.5 bg-gradient-to-r ${division.color} mx-auto rounded-full`}></div>
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Bottom CTA */}
-                  <div className="text-center mt-8 pt-6 border-t border-gray-200">
-                    <p className="text-gray-600 mb-4">Need a custom solution? Let's discuss your requirements.</p>
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                      onClick={closeMegaMenu}
-                    >
-                      <span>Contact Our Experts</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                      {/* Services List */}
+                      <div className="space-y-3">
+                        {division.services.map((service, serviceIndex) => (
+                          <Link
+                            key={serviceIndex}
+                            to={service.path}
+                            className="group/service flex items-center gap-3 p-3 rounded-xl bg-white/60 hover:bg-white hover:shadow-md transition-all duration-200 border border-transparent hover:border-gray-200"
+                            onClick={closeMegaMenu}
+                          >
+                            <div className={`w-10 h-10 bg-gradient-to-r ${division.color} rounded-xl flex items-center justify-center group-hover/service:scale-110 transition-transform duration-200 shadow-sm`}>
+                              <service.icon className="w-5 h-5 text-white" />
+                            </div>
+                            <div className="flex-1">
+                              <span className="text-gray-800 group-hover/service:text-gray-900 font-semibold text-sm transition-colors duration-200 leading-tight">
+                                {service.name}
+                              </span>
+                            </div>
+                            <ArrowRight className="w-4 h-4 text-gray-400 group-hover/service:text-gray-600 opacity-0 group-hover/service:opacity-100 transform translate-x-2 group-hover/service:translate-x-0 transition-all duration-200" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
+              </div>
+
+              {/* Bottom CTA */}
+              <div className="text-center mt-10 pt-8 border-t border-gray-200">
+                <p className="text-gray-600 mb-4">Need a custom solution? Let's discuss your requirements.</p>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  onClick={closeMegaMenu}
+                >
+                  <span>Contact Our Experts</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -326,7 +288,7 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMobileMenu} />
-          <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 overflow-y-auto">
+          <div className="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300">
             <div className="p-6 pt-24">
               <div className="space-y-4">
                 {navItems.map((item) => (
@@ -345,28 +307,20 @@ const Navbar: React.FC = () => {
                     
                     {/* Mobile Services Submenu */}
                     {item.megaMenu && (
-                      <div className="ml-4 mt-3 space-y-3 max-h-96 overflow-y-auto">
+                      <div className="ml-4 mt-2 space-y-2">
                         {item.megaMenu.divisions.map((division, divIndex) => (
-                          <div key={divIndex} className="border-l-2 border-gray-200 pl-4 pb-3">
-                            <div className="flex items-center gap-2 mb-3">
-                              <div className={`w-8 h-8 bg-gradient-to-r ${division.color} rounded-lg flex items-center justify-center`}>
-                                <division.icon className="w-4 h-4 text-white" />
-                              </div>
-                              <h5 className="text-sm font-bold text-gray-900">{division.title}</h5>
-                            </div>
-                            <div className="space-y-1">
-                              {division.services.map((service, serviceIndex) => (
-                                <Link
-                                  key={serviceIndex}
-                                  to={service.path}
-                                  className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-colors duration-200"
-                                  onClick={closeMobileMenu}
-                                >
-                                  <service.icon className="w-4 h-4 flex-shrink-0" />
-                                  <span className="flex-1">{service.name}</span>
-                                </Link>
-                              ))}
-                            </div>
+                          <div key={divIndex} className="border-l-2 border-gray-200 pl-4">
+                            <h5 className="text-sm font-semibold text-gray-900 mb-2">{division.title}</h5>
+                            {division.services.map((service, serviceIndex) => (
+                              <Link
+                                key={serviceIndex}
+                                to={service.path}
+                                className="block px-3 py-2 text-sm text-gray-600 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-colors duration-200"
+                                onClick={closeMobileMenu}
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
                           </div>
                         ))}
                       </div>
