@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   BarChart3, 
   Zap, 
@@ -38,41 +38,33 @@ import {
   Monitor,
   Smartphone,
   Server,
-  HardDrive
+  HardDrive,
+  Star,
+  Play
 } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const DigitalSolutions: React.FC = () => {
-  const digitalServices = [
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+  const coreServices = [
     {
       icon: BarChart3,
       title: 'Data Analytics & Data Visualization',
-      subtitle: 'Transforming Data into Actionable Insights',
-      description: 'In the digital age, data is the new currency. Our Data Analytics & Visualization services help you harness the power of your business data to gain deep insights, identify trends, and drive better decision-making.',
-      features: [
-        'Business Intelligence (BI) Dashboards',
-        'Interactive Data Visualization', 
-        'Predictive & Descriptive Analytics',
-        'KPI Tracking & Reporting',
-        'Real-time Data Monitoring'
-      ],
+      description: 'Transforming Data into Actionable Insights. In the digital age, data is the new currency. Our Data Analytics & Visualization services help you harness the power of your business data to gain deep insights, identify trends, and drive better decision-making.',
+      link: '/data-analytics-visualization',
       color: 'from-blue-500 to-cyan-600',
-      bgColor: 'from-blue-500/10 to-cyan-600/10'
+      bgColor: 'from-blue-500/10 to-cyan-600/10',
+      features: ['Business Intelligence Dashboards', 'Interactive Data Visualization', 'Predictive & Descriptive Analytics', 'KPI Tracking & Reporting', 'Real-time Data Monitoring']
     },
     {
       icon: Zap,
       title: 'Automation & Digital Transformation',
-      subtitle: 'Streamline Operations & Embrace Digital Excellence',
-      description: 'Our Automation & Digital Transformation services are designed to simplify complex business processes, reduce manual effort, and boost operational efficiency. We help organizations adopt intelligent automation and digital tools that drive innovation and improve productivity.',
-      features: [
-        'Business Process Automation (BPA)',
-        'Robotic Process Automation (RPA)',
-        'Digital Workflow Optimization',
-        'Cloud Integration & Digital Tools',
-        'AI & Machine Learning Implementation'
-      ],
+      description: 'Streamline Operations & Embrace Digital Excellence. Our Automation & Digital Transformation services are designed to simplify complex business processes, reduce manual effort, and boost operational efficiency.',
+      link: '/automation-digital-transformation',
       color: 'from-purple-500 to-pink-600',
-      bgColor: 'from-purple-500/10 to-pink-600/10'
+      bgColor: 'from-purple-500/10 to-pink-600/10',
+      features: ['Business Process Automation (BPA)', 'Robotic Process Automation (RPA)', 'Digital Workflow Optimization', 'Cloud Integration & Digital Tools', 'AI & Machine Learning Implementation']
     }
   ];
 
@@ -115,20 +107,6 @@ const DigitalSolutions: React.FC = () => {
     { icon: Zap, value: '80%', label: 'Process Efficiency', color: 'from-purple-400 to-pink-500' },
     { icon: TrendingUp, value: '300%', label: 'ROI Improvement', color: 'from-green-400 to-teal-500' },
     { icon: Clock, value: '24/7', label: 'Data Monitoring', color: 'from-orange-400 to-red-500' }
-  ];
-
-  const dataAnalyticsFeatures = [
-    { icon: PieChart, title: 'Interactive Dashboards', description: 'Real-time business intelligence dashboards' },
-    { icon: LineChart, title: 'Predictive Analytics', description: 'AI-powered forecasting and trend analysis' },
-    { icon: Eye, title: 'Data Visualization', description: 'Clear, engaging visual representations of data' },
-    { icon: Activity, title: 'Real-time Monitoring', description: 'Live data tracking and automated alerts' }
-  ];
-
-  const automationFeatures = [
-    { icon: Bot, title: 'RPA Implementation', description: 'Robotic process automation for repetitive tasks' },
-    { icon: Workflow, title: 'Process Optimization', description: 'Streamlined workflows and digital processes' },
-    { icon: Cloud, title: 'Cloud Integration', description: 'Seamless cloud-based digital transformation' },
-    { icon: Brain, title: 'AI Implementation', description: 'Machine learning and artificial intelligence solutions' }
   ];
 
   return (
@@ -211,250 +189,198 @@ const DigitalSolutions: React.FC = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
-            {/* Left Content */}
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
-                <Brain className="w-4 h-4 text-indigo-300 animate-pulse" />
-                <span className="text-indigo-200 text-sm font-medium">Digital Solutions Excellence</span>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
+              <Brain className="w-4 h-4 text-indigo-300 animate-pulse" />
+              <span className="text-indigo-200 text-sm font-medium">Digital Solutions Excellence</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              <span className="block">Digital Solutions</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 animate-gradient-x">
+                for Business Growth
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-5xl mx-auto leading-relaxed">
+              At CHN Technologies, we help businesses unlock their full potential with cutting-edge digital solutions. 
+              By combining Data Analytics & Visualization with Automation & Digital Transformation, we enable organizations 
+              to make smarter decisions, streamline operations, and stay ahead in today's fast-changing digital landscape.
+            </p>
+            
+            {/* Key Highlights */}
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+                <BarChart3 className="w-4 h-4 text-blue-400" />
+                <span className="text-white text-sm font-medium">Data-Driven Insights</span>
               </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-                <span className="block">Digital</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 animate-gradient-x">
-                  Solutions
-                </span>
-              </h1>
-              
-              <div className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-semibold text-slate-200 mb-4">
-                  Empowering Business Growth Through Data & Automation
-                </h2>
-                
-                <p className="text-xl text-slate-300 leading-relaxed">
-                  At CHN Technologies, we help businesses unlock their full potential with cutting-edge digital solutions. 
-                  By combining Data Analytics & Visualization with Automation & Digital Transformation, we enable organizations 
-                  to make smarter decisions, streamline operations, and stay ahead in today's fast-changing digital landscape.
-                </p>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+                <Zap className="w-4 h-4 text-purple-400" />
+                <span className="text-white text-sm font-medium">Process Automation</span>
               </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                <a
-                  href="tel:+917010203031"
-                  className="group bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Let's Transform Your Business Together</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                
-                <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                  <Eye className="w-5 h-5" />
-                  <span>Contact us today to get started!</span>
-                </button>
-              </div>
-              
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">500+</div>
-                  <div className="text-slate-400 text-sm">Data Projects</div>
-                </div>
-                <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-indigo-400 mb-1">80%</div>
-                  <div className="text-slate-400 text-sm">Efficiency Boost</div>
-                </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
+                <Brain className="w-4 h-4 text-pink-400" />
+                <span className="text-white text-sm font-medium">AI & ML Integration</span>
               </div>
             </div>
             
-            {/* Right Visual Element - Digital Analytics Dashboard */}
-            <div className="relative">
-              {/* Main Digital Analytics Dashboard */}
-              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-white font-semibold text-lg">Digital Analytics Hub</h3>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-green-400 text-sm">Live Data</span>
-                  </div>
-                </div>
-                
-                {/* Analytics Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {[
-                    { icon: BarChart3, color: 'from-blue-400 to-cyan-500', label: 'Analytics', value: '95%' },
-                    { icon: Zap, color: 'from-purple-400 to-pink-500', label: 'Automation', value: '87%' },
-                    { icon: TrendingUp, color: 'from-green-400 to-teal-500', label: 'Growth', value: '234%' },
-                    { icon: Database, color: 'from-orange-400 to-red-500', label: 'Data Quality', value: '99%' }
-                  ].map((metric, index) => (
-                    <div
-                      key={index}
-                      className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 hover:bg-white/20 transition-all duration-300 text-center"
-                    >
-                      <div className={`w-10 h-10 bg-gradient-to-r ${metric.color} rounded-xl mx-auto mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                        <metric.icon className="w-5 h-5 text-white" />
-                      </div>
-                      <div className="text-white text-xs font-medium mb-1">{metric.label}</div>
-                      <div className="text-slate-300 text-lg font-bold">{metric.value}</div>
-                      
-                      {/* Status Indicator */}
-                      <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Performance Metrics */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {heroStats.map((stat, index) => (
-                    <div
-                      key={index}
-                      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all duration-300"
-                    >
-                      <div className={`inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r ${stat.color} rounded-lg mb-2`}>
-                        <stat.icon className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="text-lg font-bold text-white">{stat.value}</div>
-                      <div className="text-slate-400 text-xs">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Digital Transformation Progress */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4">
-                  <h4 className="text-white text-sm font-medium mb-3">Digital Transformation Progress</h4>
-                  <div className="space-y-3">
-                    {[
-                      { process: 'Data Migration', progress: 95, color: 'bg-blue-400' },
-                      { process: 'Process Automation', progress: 87, color: 'bg-purple-400' },
-                      { process: 'Analytics Implementation', progress: 92, color: 'bg-green-400' }
-                    ].map((item, index) => (
-                      <div key={index} className="space-y-1">
-                        <div className="flex justify-between text-xs">
-                          <span className="text-slate-300">{item.process}</span>
-                          <span className="text-white">{item.progress}%</span>
-                        </div>
-                        <div className="w-full bg-white/10 rounded-full h-2">
-                          <div 
-                            className={`${item.color} h-2 rounded-full transition-all duration-1000`}
-                            style={{ width: `${item.progress}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Digital Elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-2xl animate-spin-slow opacity-80 flex items-center justify-center">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl animate-bounce opacity-60 flex items-center justify-center">
-                <Cpu className="w-6 h-6 text-white" />
-              </div>
-
-              {/* Digital Connection Lines */}
-              <div className="absolute inset-0 pointer-events-none">
-                <svg className="w-full h-full opacity-30">
-                  <defs>
-                    <linearGradient id="digitalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#3b82f6" />
-                      <stop offset="100%" stopColor="#6366f1" />
-                    </linearGradient>
-                  </defs>
-                  <line x1="20%" y1="30%" x2="80%" y2="70%" stroke="url(#digitalGradient)" strokeWidth="2" strokeDasharray="5,5" className="animate-pulse" />
-                  <line x1="80%" y1="30%" x2="20%" y2="70%" stroke="url(#digitalGradient)" strokeWidth="2" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '1s' }} />
-                  <circle cx="50%" cy="50%" r="25%" fill="none" stroke="url(#digitalGradient)" strokeWidth="1" strokeDasharray="8,4" className="animate-spin-slow" />
-                </svg>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="group bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center gap-2">
+                <span>Let's Transform Your Business Together</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                <Play className="w-5 h-5" />
+                <span>Contact us today to get started!</span>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Digital Solutions Include Section */}
-      <section className="py-20 bg-white">
+      {/* Why Choose CHN for Digital Solutions */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
-              <Lightbulb className="w-4 h-4 text-blue-600" />
-              <span className="text-blue-700 text-sm font-medium">Our Digital Solutions Include</span>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
+                <Lightbulb className="w-4 h-4 text-blue-600" />
+                <span className="text-blue-700 text-sm font-medium">Why Choose CHN</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Unlock the Power of{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  Digital Innovation
+                </span>
+              </h2>
+              
+              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                At CHN Technologies, we specialize in transforming raw data into actionable insights and automating 
+                complex business processes. Our digital solutions are designed to boost efficiency, reduce costs, 
+                and drive innovation across your organization. Whether you're looking to harness data analytics 
+                or embrace digital transformation, we deliver results that matter.
+              </p>
+
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-6">
+                {heroStats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-1 text-center"
+                  >
+                    <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${stat.color} rounded-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                    <div className="text-gray-600 text-sm">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 border border-blue-100">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
+                      <BarChart3 className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data Analytics</h4>
+                    <p className="text-gray-600 text-sm">Actionable insights</p>
+                  </div>
+                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mx-auto mb-3 flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Automation</h4>
+                    <p className="text-gray-600 text-sm">Process optimization</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-600 rounded-2xl animate-spin-slow opacity-80"></div>
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl animate-bounce opacity-60"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Digital Solutions */}
+      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.1),transparent_50%)]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-6 py-2 mb-8">
+              <Brain className="w-4 h-4 text-blue-400 animate-pulse" />
+              <span className="text-blue-300 text-sm font-medium">Our Digital Solutions Include</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Our Digital Solutions{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x">
                 Include
               </span>
             </h2>
-            
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="space-y-16">
-            {digitalServices.map((service, index) => (
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {coreServices.map((service, index) => (
               <div
                 key={index}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
+                className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500 transform hover:-translate-y-4 relative overflow-hidden"
+                onMouseEnter={() => setHoveredService(index)}
+                onMouseLeave={() => setHoveredService(null)}
               >
-                {/* Content */}
-                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6`}>
+                {/* Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
+                
+                <div className="relative">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   
-                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
                     {service.title}
                   </h3>
                   
-                  <h4 className={`text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${service.color}`}>
-                    {service.subtitle}
-                  </h4>
-                  
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  <p className="text-slate-300 mb-6 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
                     {service.description}
                   </p>
-                  
-                  <div className="space-y-3">
-                    <h5 className="font-semibold text-gray-900 mb-3">Our Expertise Includes:</h5>
+
+                  {/* Features List */}
+                  <div className={`space-y-2 mb-6 transition-all duration-500 ${
+                    hoveredService === index ? 'opacity-100 max-h-40' : 'opacity-70 max-h-24 overflow-hidden'
+                  }`}>
+                    <h4 className="text-white font-semibold mb-3">Our Expertise Includes:</h4>
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                      <div key={featureIndex} className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <span className="text-slate-300 text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="mt-8">
-                    <p className="text-gray-600 leading-relaxed">
-                      {index === 0 
-                        ? "With visually engaging dashboards and powerful analytics, we help you turn complex data into clear, actionable insights that fuel business growth."
-                        : "By automating routine tasks and embracing digital transformation, you can save time, reduce costs, and focus on what matters most—growing your business."
-                      }
-                    </p>
-                  </div>
+                  <a
+                    href={service.link}
+                    className={`inline-flex items-center gap-2 bg-gradient-to-r ${service.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg`}
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </div>
-                
-                {/* Visual Element */}
-                <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <div className={`bg-gradient-to-br ${service.bgColor} rounded-3xl p-8 border border-gray-100`}>
-                    <div className="grid grid-cols-2 gap-4">
-                      {(index === 0 ? dataAnalyticsFeatures : automationFeatures).map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-                        >
-                          <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl mx-auto mb-3 flex items-center justify-center`}>
-                            <feature.icon className="w-6 h-6 text-white" />
-                          </div>
-                          <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                          <p className="text-gray-600 text-sm">{feature.description}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-blue-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-purple-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
@@ -462,47 +388,37 @@ const DigitalSolutions: React.FC = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)] animate-pulse"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/10 to-teal-500/10 backdrop-blur-sm border border-green-500/20 rounded-full px-6 py-2 mb-8">
-              <Award className="w-4 h-4 text-green-400 animate-pulse" />
-              <span className="text-green-300 text-sm font-medium">Why Choose Us?</span>
-            </div>
-            
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Why Choose{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-teal-400 to-cyan-400 animate-gradient-x">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
                 CHN Technologies?
               </span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto rounded-full"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Trusted expertise and proven solutions for your digital transformation needs
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((reason, index) => (
+            {whyChooseUs.map((item, index) => (
               <div
                 key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 text-center"
+                className="group bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-xl hover:border-green-200 transition-all duration-500 transform hover:-translate-y-2 text-center"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <reason.icon className="w-8 h-8 text-white" />
+                  <item.icon className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-teal-400 transition-all duration-300">
-                  {reason.title}
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-teal-600 transition-all duration-300">
+                  {item.title}
                 </h3>
                 
-                <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
-                  {reason.description}
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
                 </p>
-                
-                {/* Check mark indicator */}
-                <div className="mt-4 flex justify-center">
-                  <CheckCircle className="w-6 h-6 text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
               </div>
             ))}
           </div>
@@ -510,39 +426,35 @@ const DigitalSolutions: React.FC = () => {
       </section>
 
       {/* Industries We Transform */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)] animate-pulse"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-full px-4 py-2 mb-6">
-              <Building className="w-4 h-4 text-purple-600" />
-              <span className="text-purple-700 text-sm font-medium">Industries We Transform</span>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-purple-500/20 rounded-full px-6 py-2 mb-8">
+              <Building className="w-4 h-4 text-purple-400 animate-pulse" />
+              <span className="text-purple-300 text-sm font-medium">Industries We Transform</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Industries We{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                Transform
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Industries{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 animate-gradient-x">
+                We Transform
               </span>
             </h2>
-            
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-              Our digital solutions empower businesses across diverse industries to harness data insights 
-              and automate processes for enhanced efficiency and growth.
-            </p>
-            
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg hover:border-gray-300 transition-all duration-300 transform hover:-translate-y-1 text-center"
+                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1 text-center"
               >
                 <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${industry.color} rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <industry.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                <h3 className="text-lg font-semibold text-slate-300 group-hover:text-white transition-colors duration-300">
                   {industry.name}
                 </h3>
               </div>
@@ -554,14 +466,14 @@ const DigitalSolutions: React.FC = () => {
       {/* Call to Action */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
-          {/* Digital Transformation Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+          {/* Digital Pattern Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
           
           {/* Floating Elements */}
-          <div className="absolute top-20 left-20 w-24 h-24 bg-white/10 rounded-2xl blur-xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-24 h-24 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
           
-          {/* Data Flow Network */}
+          {/* Data Flow */}
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1000 400">
               <defs>
@@ -581,14 +493,14 @@ const DigitalSolutions: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Let's Transform Your Business{' '}
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Transform Your Business with{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-              Together
+              Digital Innovation?
             </span>
-          </h3>
+          </h2>
           
-          <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 leading-relaxed">
             Partner with CHN Technologies to unlock the power of digital innovation. Whether you're looking to harness 
             data-driven insights or automate business processes, we're here to help you succeed.
           </p>
@@ -604,7 +516,7 @@ const DigitalSolutions: React.FC = () => {
             </a>
             
             <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-              <Rocket className="w-5 h-5" />
+              <Star className="w-5 h-5" />
               <span>Explore Digital Solutions</span>
             </button>
           </div>
