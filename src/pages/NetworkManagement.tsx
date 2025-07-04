@@ -22,7 +22,11 @@ import {
   Factory,
   Stethoscope,
   Fuel,
-  Banknote
+  Banknote,
+  Globe,
+  Users,
+  Award,
+  Clock
 } from 'lucide-react';
 import Footer from '../components/Footer';
 
@@ -84,55 +88,214 @@ const NetworkManagement: React.FC = () => {
     'Proven success across 20+ industries'
   ];
 
+  const heroStats = [
+    { icon: Globe, value: '99.9%', label: 'Uptime Guarantee', color: 'from-cyan-400 to-blue-500' },
+    { icon: Users, value: '500+', label: 'Networks Managed', color: 'from-purple-400 to-pink-500' },
+    { icon: Award, value: '24/7', label: 'Expert Support', color: 'from-green-400 to-teal-500' },
+    { icon: Clock, value: '<5min', label: 'Response Time', color: 'from-orange-400 to-red-500' }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - Split Layout */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Clean Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-          {/* Subtle Pattern Overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        {/* Dark Tech Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+          {/* Network Connection Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="networkGrid" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                  <g stroke="currentColor" strokeWidth="1" fill="none" className="text-cyan-400">
+                    <circle cx="50" cy="50" r="2" fill="currentColor" />
+                    <circle cx="20" cy="20" r="1" fill="currentColor" />
+                    <circle cx="80" cy="20" r="1" fill="currentColor" />
+                    <circle cx="20" cy="80" r="1" fill="currentColor" />
+                    <circle cx="80" cy="80" r="1" fill="currentColor" />
+                    <path d="M20,20 L50,50 M80,20 L50,50 M20,80 L50,50 M80,80 L50,50" strokeDasharray="2,2" />
+                  </g>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#networkGrid)" />
+            </svg>
+          </div>
           
-          {/* Floating Network Icons */}
-          <div className="absolute top-20 left-20 animate-float opacity-20">
-            <Network className="w-16 h-16 text-blue-500" />
-          </div>
-          <div className="absolute top-40 right-32 animate-float opacity-20" style={{ animationDelay: '1s' }}>
-            <Server className="w-12 h-12 text-purple-500" />
-          </div>
-          <div className="absolute bottom-32 left-32 animate-float opacity-20" style={{ animationDelay: '2s' }}>
-            <Wifi className="w-14 h-14 text-cyan-500" />
+          {/* Animated Data Streams */}
+          <div className="absolute inset-0">
+            {[...Array(8)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse"
+                style={{
+                  top: `${10 + i * 12}%`,
+                  left: '0%',
+                  width: '100%',
+                  animationDelay: `${i * 0.5}s`,
+                  animationDuration: '4s'
+                }}
+              />
+            ))}
           </div>
           
-          {/* Geometric Shapes */}
-          <div className="absolute top-1/4 right-1/4 w-32 h-32 border border-blue-200 rounded-full opacity-30"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-24 h-24 border border-purple-200 rounded-lg transform rotate-45 opacity-30"></div>
+          {/* Floating Network Nodes */}
+          <div className="absolute top-20 left-20 animate-float opacity-30">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full border-2 border-cyan-400/30 flex items-center justify-center">
+              <Network className="w-8 h-8 text-cyan-400" />
+            </div>
+          </div>
+          <div className="absolute top-40 right-32 animate-float opacity-30" style={{ animationDelay: '1s' }}>
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-400/20 to-pink-500/20 rounded-full border-2 border-purple-400/30 flex items-center justify-center">
+              <Server className="w-6 h-6 text-purple-400" />
+            </div>
+          </div>
+          <div className="absolute bottom-32 left-32 animate-float opacity-30" style={{ animationDelay: '2s' }}>
+            <div className="w-20 h-20 bg-gradient-to-r from-pink-400/20 to-red-500/20 rounded-full border-2 border-pink-400/30 flex items-center justify-center">
+              <Wifi className="w-10 h-10 text-pink-400" />
+            </div>
+          </div>
+          
+          {/* Glowing Orbs */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-2 mb-8">
-              <Network className="w-4 h-4 text-blue-600" />
-              <span className="text-blue-700 text-sm font-medium">Network Management Services</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
+                <Network className="w-4 h-4 text-cyan-300 animate-pulse" />
+                <span className="text-cyan-200 text-sm font-medium">Network Management Excellence</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                <span className="block">Network</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 animate-gradient-x">
+                  Management
+                </span>
+              </h1>
+              
+              <div className="mb-8">
+                <h2 className="text-2xl md:text-3xl font-semibold text-slate-200 mb-4">
+                  Seamless Connectivity. Secured Performance. Scalable Infrastructure.
+                </h2>
+                
+                <p className="text-xl text-slate-300 leading-relaxed">
+                  In today's hyper-connected business landscape, your network is the backbone of productivity and performance. 
+                  Our Network Management services ensure your infrastructure is always secure, optimized, and future-ready — 
+                  no matter the industry.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <a
+                  href="tel:+917010203031"
+                  className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center justify-center gap-2"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Speak to Our Network Experts</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                
+                <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                  <Activity className="w-5 h-5" />
+                  <span>View Case Studies</span>
+                </button>
+              </div>
+              
+              {/* Quick Stats */}
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto lg:mx-0">
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-cyan-400 mb-1">99.9%</div>
+                  <div className="text-slate-400 text-sm">Uptime</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-3xl font-bold text-purple-400 mb-1">500+</div>
+                  <div className="text-slate-400 text-sm">Networks</div>
+                </div>
+              </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              <span className="block">Network</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600">
-                Management
-              </span>
-            </h1>
-            
-            <div className="max-w-4xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">
-                Seamless Connectivity. Secured Performance. Scalable Infrastructure.
-              </h2>
-              
-              <p className="text-xl text-gray-600 leading-relaxed">
-                In today's hyper-connected business landscape, your network is the backbone of productivity and performance. 
-                Our Network Management services ensure your infrastructure is always secure, optimized, and future-ready — 
-                no matter the industry.
-              </p>
+            {/* Right Visual Element */}
+            <div className="relative">
+              {/* Main Network Visualization */}
+              <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+                {/* Central Hub */}
+                <div className="relative flex items-center justify-center mb-8">
+                  <div className="w-24 h-24 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full flex items-center justify-center relative">
+                    <Network className="w-12 h-12 text-white" />
+                    
+                    {/* Pulsing Rings */}
+                    <div className="absolute inset-0 rounded-full border-2 border-cyan-400/30 animate-ping"></div>
+                    <div className="absolute inset-0 rounded-full border-2 border-purple-400/30 animate-ping" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                </div>
+                
+                {/* Connected Nodes */}
+                <div className="grid grid-cols-3 gap-6 mb-8">
+                  {[
+                    { icon: Server, color: 'from-blue-400 to-cyan-500', label: 'Servers' },
+                    { icon: Shield, color: 'from-green-400 to-teal-500', label: 'Security' },
+                    { icon: Cloud, color: 'from-purple-400 to-pink-500', label: 'Cloud' },
+                    { icon: Monitor, color: 'from-orange-400 to-red-500', label: 'Monitoring' },
+                    { icon: Wifi, color: 'from-indigo-400 to-purple-500', label: 'Wireless' },
+                    { icon: Settings, color: 'from-cyan-400 to-blue-500', label: 'Config' }
+                  ].map((node, index) => (
+                    <div
+                      key={index}
+                      className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 hover:bg-white/20 transition-all duration-300 text-center"
+                    >
+                      <div className={`w-12 h-12 bg-gradient-to-r ${node.color} rounded-xl mx-auto mb-2 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <node.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-white text-xs font-medium">{node.label}</span>
+                      
+                      {/* Connection Lines */}
+                      <div className="absolute top-1/2 left-1/2 w-px h-8 bg-gradient-to-b from-cyan-400/50 to-transparent transform -translate-x-1/2 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Performance Metrics */}
+                <div className="grid grid-cols-2 gap-4">
+                  {heroStats.map((stat, index) => (
+                    <div
+                      key={index}
+                      className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all duration-300"
+                    >
+                      <div className={`inline-flex items-center justify-center w-8 h-8 bg-gradient-to-r ${stat.color} rounded-lg mb-2`}>
+                        <stat.icon className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="text-lg font-bold text-white">{stat.value}</div>
+                      <div className="text-slate-400 text-xs">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Floating Connection Indicators */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-2xl animate-spin-slow opacity-80 flex items-center justify-center">
+                <Zap className="w-8 h-8 text-white" />
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl animate-bounce opacity-60 flex items-center justify-center">
+                <Lock className="w-6 h-6 text-white" />
+              </div>
+
+              {/* Network Connection Lines */}
+              <div className="absolute inset-0 pointer-events-none">
+                <svg className="w-full h-full opacity-30">
+                  <defs>
+                    <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4" />
+                      <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="10%" y1="10%" x2="90%" y2="90%" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" className="animate-pulse" />
+                  <line x1="90%" y1="10%" x2="10%" y2="90%" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" className="animate-pulse" style={{ animationDelay: '1s' }} />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
