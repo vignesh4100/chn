@@ -21,14 +21,21 @@ const Navbar: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { 
-      name: 'Services', 
-      path: '/services',
+      name: 'Technology', 
+      path: '/technology',
       dropdown: [
-        { name: 'IT Infrastructure', path: '/services#infrastructure' },
-        { name: 'Software Development', path: '/services#development' },
-        { name: 'Workforce Management', path: '/services#workforce' },
-        { name: 'Payroll & Compliance', path: '/services#payroll' },
-        { name: 'Training & Development', path: '/services#training' }
+        { name: 'IT Infrastructure', path: '/technology/infrastructure' },
+        { name: 'Software Solutions', path: '/technology/software' },
+        { name: 'Digital Solutions', path: '/technology/digital' }
+      ]
+    },
+    { 
+      name: 'Consulting', 
+      path: '/consulting',
+      dropdown: [
+        { name: 'Workforce Management', path: '/consulting/workforce' },
+        { name: 'Payroll & Compliance', path: '/consulting/payroll' },
+        { name: 'Training & Development', path: '/consulting/training' }
       ]
     },
     { name: 'Contact', path: '/contact' }
