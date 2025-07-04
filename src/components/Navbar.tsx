@@ -213,10 +213,10 @@ const Navbar: React.FC = () => {
             <div className="p-8">
               {/* Header */}
               <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-white-900 mb-2">
+                <h3 className="text-3xl font-bold text-gray-900 mb-2">
                   {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.title}
                 </h3>
-                <p className="text-white-600">
+                <p className="text-gray-600">
                   {navItems.find(item => item.name === activeMegaMenu)?.megaMenu?.subtitle}
                 </p>
                 <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
@@ -248,4 +248,55 @@ const Navbar: React.FC = () => {
                           </div>
                           <div className="flex-1">
                             <span className="text-gray-700 group-hover/service:text-gray-900 font-medium text-sm transition-colors duration-200">
-                              {
+                              {service.name}
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMobileMenu} />
+          <div className="fixed top-0 right-0 h-full w-80 bg-white/95 backdrop-blur-xl shadow-2xl transform transition-transform duration-300">
+            <div className="p-6 pt-24">
+              <div className="space-y-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
+                      isActivePath(item.path)
+                        ? 'text-cyan-600 bg-cyan-50'
+                        : 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
+                    }`}
+                    onClick={closeMobileMenu}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <Link
+                  to="/contact"
+                  className="block w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-center mt-6"
+                  onClick={closeMobileMenu}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Navbar;
