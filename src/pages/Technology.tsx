@@ -21,7 +21,8 @@ const Technology: React.FC = () => {
       description: 'Comprehensive infrastructure management and optimization solutions',
       features: ['Network Management', 'Server Administration', 'Security Implementation', 'Performance Monitoring'],
       color: 'from-cyan-500 to-blue-600',
-      bgColor: 'from-cyan-500/10 to-blue-600/10'
+      bgColor: 'from-cyan-500/10 to-blue-600/10',
+      link: '/technology/infrastructure'
     },
     {
       icon: Code,
@@ -29,7 +30,8 @@ const Technology: React.FC = () => {
       description: 'Custom software development and application modernization',
       features: ['Custom Development', 'Legacy Modernization', 'API Integration', 'Quality Assurance'],
       color: 'from-purple-500 to-pink-600',
-      bgColor: 'from-purple-500/10 to-pink-600/10'
+      bgColor: 'from-purple-500/10 to-pink-600/10',
+      link: '/technology/software'
     },
     {
       icon: Smartphone,
@@ -37,7 +39,8 @@ const Technology: React.FC = () => {
       description: 'Digital transformation and emerging technology implementation',
       features: ['Digital Strategy', 'Process Automation', 'IoT Solutions', 'AI Integration'],
       color: 'from-green-500 to-teal-600',
-      bgColor: 'from-green-500/10 to-teal-600/10'
+      bgColor: 'from-green-500/10 to-teal-600/10',
+      link: '/technology/digital'
     }
   ];
 
@@ -130,10 +133,13 @@ const Technology: React.FC = () => {
                     ))}
                   </div>
                   
-                  <button className={`w-full bg-gradient-to-r ${tech.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}>
+                  <a
+                    href={tech.link}
+                    className={`w-full bg-gradient-to-r ${tech.color} hover:opacity-90 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105`}
+                  >
                     <span>Learn More</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}

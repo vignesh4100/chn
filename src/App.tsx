@@ -10,6 +10,7 @@ import EndUserComputing from './pages/EndUserComputing';
 import CyberSecurity from './pages/CyberSecurity';
 import ServerAdministration from './pages/ServerAdministration';
 import LANCablingSurveillance from './pages/LANCablingSurveillance';
+import SoftwareSolutions from './pages/SoftwareSolutions';
 import Consulting from './pages/Consulting';
 import Contact from './pages/Contact';
 
@@ -23,13 +24,14 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/technology/infrastructure" element={<ITInfrastructure />} />
-          <Route path="/technology/software" element={<Technology />} />
+          <Route path="/technology/software" element={<SoftwareSolutions />} />
           <Route path="/technology/digital" element={<Technology />} />
           <Route path="/network-management" element={<NetworkManagement />} />
           <Route path="/end-user-computing" element={<EndUserComputing />} />
           <Route path="/cyber-security" element={<CyberSecurity />} />
           <Route path="/server-administration" element={<ServerAdministration />} />
           <Route path="/lan-cabling-surveillance" element={<LANCablingSurveillance />} />
+          <Route path="/software-solutions" element={<SoftwareSolutions />} />
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/consulting/workforce" element={<Consulting />} />
           <Route path="/consulting/payroll" element={<Consulting />} />
