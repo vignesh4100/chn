@@ -12,6 +12,11 @@
   }
 }
 
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 @layer utilities {
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out;
@@ -35,6 +40,18 @@
   
   .perspective-1000 {
     perspective: 1000px;
+  }
+  
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+  
+  .rotate-x-12 {
+    transform: rotateX(12deg);
   }
   
   .transform-style-3d {

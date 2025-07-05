@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Calculator, 
   Clock, 
@@ -36,11 +36,15 @@ import {
   CheckSquare,
   PieChart,
   LineChart,
-  Briefcase
+  Briefcase,
+  ChevronRight,
+  Play
 } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const PayrollCompliance: React.FC = () => {
+  const [activeService, setActiveService] = useState<number>(0);
+
   const services = [
     {
       icon: Calculator,
@@ -169,12 +173,24 @@ const PayrollCompliance: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Modern Split Layout with Gradient Background */}
+      {/* Hero Section - Video Background with Overlay */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900 to-teal-900">
-          {/* Subtle Pattern Overlay */}
-          <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00bTAtMTZjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00bTE2IDE2YzAtMi4yIDEuOC00IDQtNHM0IDEuOCA0IDQtMS44IDQtNCA0LTQtMS44LTQtNG0tMTYgMGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTRtLTE2IDBjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00bTAtMTZjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00TTIwIDM0YzAtMi4yIDEuOC00IDQtNHM0IDEuOCA0IDQtMS44IDQtNCA0LTQtMS44LTQtNG0xNi0xNmMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTRtLTE2IDBjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00bTE2IDE2YzAtMi4yIDEuOC00IDQtNHM0IDEuOCA0IDQtMS44IDQtNCA0LTQtMS44LTQtNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
+        {/* Video Background with Fallback Image */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.pexels.com/photos/7821702/pexels-photo-7821702.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)' }}>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-teal-900/90 to-green-900/90"></div>
+          
+          {/* Animated Overlay Pattern */}
+          <div className="absolute inset-0">
+            <svg className="w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <defs>
+                <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+                  <path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
           
           {/* Floating Icons */}
           <div className="absolute top-20 left-20 animate-float opacity-20">
@@ -186,189 +202,171 @@ const PayrollCompliance: React.FC = () => {
           <div className="absolute bottom-32 left-32 animate-float opacity-20" style={{ animationDelay: '2s' }}>
             <Clock className="w-14 h-14 text-emerald-300" />
           </div>
-          
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-teal-900/80"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
-                <Calculator className="w-4 h-4 text-green-300 animate-pulse" />
-                <span className="text-green-200 text-sm font-medium">Payroll & Compliance Consulting</span>
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-                <span className="block">Error-Free Payroll.</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-teal-300 to-emerald-300 animate-gradient-x">
-                  Total Compliance.
-                </span>
-                <span className="block">Peace of Mind.</span>
-              </h1>
-              
-              <p className="text-xl text-slate-200 mb-8 leading-relaxed">
-                Managing payroll and staying compliant with labor laws can be overwhelming — especially when attendance, 
-                shifts, overtime, and leave data come from multiple sources. At CHN Technologies, we simplify it all with 
-                structured payroll systems, integrated workforce data, and expert advisory support to help you process 
-                salaries with confidence and meet every statutory requirement.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button className="group bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-400 hover:to-teal-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 flex items-center justify-center gap-2">
-                  <span>Schedule a Compliance Consultation</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                
-                <a
-                  href="tel:+917010203031"
-                  className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Talk to a Compliance Expert</span>
-                </a>
-              </div>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
+              <Calculator className="w-4 h-4 text-green-300 animate-pulse" />
+              <span className="text-green-200 text-sm font-medium">Payroll & Compliance Consulting</span>
             </div>
             
-            {/* Right Image */}
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
-                <img
-                  src="https://images.pexels.com/photos/7821702/pexels-photo-7821702.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                  alt="Payroll and compliance management dashboard"
-                  className="w-full h-96 object-cover"
-                />
-                
-                {/* Overlay with gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 via-transparent to-transparent"></div>
-                
-                {/* Floating Badge */}
-                <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-gray-900 font-semibold text-sm">100% Compliance Guaranteed</span>
-                </div>
-                
-                {/* Stats Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-white">100%</div>
-                      <div className="text-white/80 text-xs">Compliance</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-white">99.9%</div>
-                      <div className="text-white/80 text-xs">Accuracy</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-white">30%</div>
-                      <div className="text-white/80 text-xs">Time Saved</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Secondary Images */}
-              <div className="absolute -top-8 -right-8 w-32 h-32 rounded-2xl overflow-hidden shadow-xl transform rotate-12 hover:rotate-6 transition-transform duration-300">
-                <img
-                  src="https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
-                  alt="Compliance documentation and regulatory filings"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-teal-500/20"></div>
-              </div>
-
-              <div className="absolute -bottom-8 -left-8 w-28 h-28 rounded-2xl overflow-hidden shadow-xl transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
-                <img
-                  src="https://images.pexels.com/photos/7654118/pexels-photo-7654118.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
-                  alt="HR dashboard with payroll analytics"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-emerald-500/20"></div>
-              </div>
+            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+              <span className="block">Error-Free Payroll.</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-teal-300 to-emerald-300 animate-gradient-x">
+                Total Compliance.
+              </span>
+              <span className="block">Peace of Mind.</span>
+            </h1>
+            
+            <p className="text-xl text-slate-200 mb-8 leading-relaxed">
+              Managing payroll and staying compliant with labor laws can be overwhelming — especially when attendance, 
+              shifts, overtime, and leave data come from multiple sources. At CHN Technologies, we simplify it all with 
+              structured payroll systems, integrated workforce data, and expert advisory support.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+              <button className="group bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-400 hover:to-teal-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 flex items-center justify-center gap-2">
+                <span>Schedule a Compliance Consultation</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              
+              <a
+                href="tel:+917010203031"
+                className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Talk to a Compliance Expert</span>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Services Include Section */}
+      {/* Interactive Services Showcase */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-50 to-teal-50 border border-green-200 rounded-full px-4 py-2 mb-6">
               <Briefcase className="w-4 h-4 text-green-600" />
-              <span className="text-green-700 text-sm font-medium">Our Services Include</span>
+              <span className="text-green-700 text-sm font-medium">Our Services</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Services{' '}
+              Comprehensive{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">
-                Include
+                Payroll & Compliance Solutions
               </span>
             </h2>
             
-            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto rounded-full"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From payroll processing to statutory compliance, we offer end-to-end solutions to keep your business running smoothly
+            </p>
           </div>
 
-          <div className="space-y-16">
-            {services.map((service, index) => (
-              <div 
-                key={index}
-                className={`group relative bg-white border border-gray-200 rounded-3xl overflow-hidden transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl ${
-                  index % 2 === 0 ? '' : 'lg:flex-row-reverse'
-                }`}
-              >
-                <div className="grid lg:grid-cols-2 gap-0">
+          {/* Interactive Service Showcase */}
+          <div className="grid lg:grid-cols-12 gap-8">
+            {/* Left Service Navigation */}
+            <div className="lg:col-span-4 space-y-4">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`cursor-pointer p-6 rounded-2xl transition-all duration-300 ${
+                    activeService === index 
+                      ? `bg-gradient-to-r ${service.color} text-white shadow-lg` 
+                      : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
+                  }`}
+                  onClick={() => setActiveService(index)}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                      activeService === index 
+                        ? 'bg-white/20' 
+                        : `bg-gradient-to-r ${service.color}`
+                    }`}>
+                      <service.icon className={`w-6 h-6 ${
+                        activeService === index ? 'text-white' : 'text-white'
+                      }`} />
+                    </div>
+                    <div>
+                      <h3 className={`font-bold text-lg ${
+                        activeService === index ? 'text-white' : 'text-gray-900'
+                      }`}>
+                        {service.title}
+                      </h3>
+                      <p className={`text-sm ${
+                        activeService === index ? 'text-white/80' : 'text-gray-500'
+                      }`}>
+                        {service.title === 'Payroll Processing' ? 'End-to-end salary management' : 
+                         service.title === 'Attendance & Shift Management' ? 'Smart workforce tracking' : 
+                         service.title === 'Statutory Compliance Management' ? 'Regulatory adherence' : 
+                         'Real-time analytics & insights'}
+                      </p>
+                    </div>
+                    <ChevronRight className={`w-5 h-5 ml-auto ${
+                      activeService === index ? 'text-white' : 'text-gray-400'
+                    }`} />
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Right Service Details */}
+            <div className="lg:col-span-8">
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <div className="grid lg:grid-cols-2">
                   {/* Image Section */}
-                  <div className="relative h-80 lg:h-auto overflow-hidden">
+                  <div className="relative h-64 lg:h-auto">
                     <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      src={services[activeService].image} 
+                      alt={services[activeService].title} 
+                      className="w-full h-full object-cover"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-30 group-hover:opacity-40 transition-opacity duration-300`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${services[activeService].color} opacity-40`}></div>
                     
-                    {/* Floating Icon */}
-                    <div className="absolute top-6 left-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className={`w-8 h-8 bg-gradient-to-r ${service.color} bg-clip-text text-transparent`} />
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <button className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white hover:bg-white/30 transition-colors duration-300 group">
+                        <Play className="w-6 h-6 text-white fill-white group-hover:scale-110 transition-transform duration-300" />
+                      </button>
                     </div>
                   </div>
                   
                   {/* Content Section */}
-                  <div className="p-8 lg:p-10">
-                    <h3 className={`text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${service.color}`}>
-                      {service.title}
+                  <div className="p-8">
+                    <h3 className={`text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r ${services[activeService].color}`}>
+                      {services[activeService].title}
                     </h3>
                     
                     <p className="text-gray-700 mb-6 leading-relaxed">
-                      {service.description}
+                      {services[activeService].description}
                     </p>
                     
                     <div className="space-y-3 mb-8">
-                      <h4 className="font-semibold text-gray-900 mb-3">
-                        Includes:
+                      <h4 className="font-semibold text-gray-900 mb-2">
+                        Key Features:
                       </h4>
-                      {service.features.map((feature, featureIndex) => (
+                      {services[activeService].features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-3">
-                          <CheckCircle className={`w-5 h-5 text-transparent bg-clip-text bg-gradient-to-r ${service.color} mt-0.5 flex-shrink-0`} />
+                          <CheckCircle className={`w-5 h-5 text-transparent bg-clip-text bg-gradient-to-r ${services[activeService].color} mt-0.5 flex-shrink-0`} />
                           <span className="text-gray-700">{feature}</span>
                         </div>
                       ))}
                     </div>
                     
-                    <button className={`bg-gradient-to-r ${service.color} text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2`}>
+                    <button className={`bg-gradient-to-r ${services[activeService].color} text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center gap-2`}>
                       <span>Learn More</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Technology-Driven Efficiency Section */}
+      {/* Technology-Driven Efficiency Section - Circular Layout */}
       <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent_50%)] animate-pulse"></div>
         
@@ -391,30 +389,46 @@ const PayrollCompliance: React.FC = () => {
             <div className="w-32 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {techTools.map((tool, index) => (
-              <div
-                key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 text-center"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <tool.icon className="w-8 h-8 text-white" />
+          {/* Circular Layout */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Center Circle */}
+            <div className="relative w-64 h-64 mx-auto mb-16">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-600 rounded-full animate-pulse opacity-20"></div>
+              <div className="absolute inset-2 bg-gradient-to-r from-green-500/80 to-teal-600/80 backdrop-blur-xl rounded-full flex items-center justify-center">
+                <div className="text-center p-6">
+                  <Zap className="w-12 h-12 text-white mx-auto mb-4" />
+                  <h3 className="text-xl font-bold text-white mb-2">Integrated Tech Stack</h3>
+                  <p className="text-green-100 text-sm">Seamless, secure, and scalable</p>
                 </div>
-                
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-teal-400 transition-all duration-300">
-                  {tool.title}
-                </h3>
-                
-                <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
-                  {tool.description}
-                </p>
               </div>
-            ))}
+            </div>
+            
+            {/* Surrounding Tech Tools */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {techTools.map((tool, index) => (
+                <div
+                  key={index}
+                  className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2 text-center"
+                >
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <tool.icon className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-teal-400 transition-all duration-300">
+                    {tool.title}
+                  </h3>
+                  
+                  <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                    {tool.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Outcomes Section - Masonry Grid */}
       <section className="py-20 bg-gradient-to-r from-green-900 to-teal-900 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
@@ -441,31 +455,45 @@ const PayrollCompliance: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {outcomes.map((outcome, index) => (
-              <div
-                key={index}
-                className="group bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500 transform hover:-translate-y-4 text-center"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <outcome.icon className="w-8 h-8 text-white" />
+          {/* Masonry Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {outcomes.map((outcome, index) => {
+              // Determine card size based on index
+              const isLarge = index === 0 || index === 3;
+              
+              return (
+                <div
+                  key={index}
+                  className={`group bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500 transform hover:-translate-y-2 ${
+                    isLarge ? 'md:col-span-2 lg:col-span-1' : ''
+                  }`}
+                  style={{ 
+                    height: isLarge ? '280px' : '240px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <outcome.icon className="w-8 h-8 text-white" />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:scale-105 transition-transform duration-300">
+                    {outcome.title}
+                  </h3>
+                  
+                  <p className="text-green-200 font-medium">
+                    {outcome.description}
+                  </p>
                 </div>
-                
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:scale-105 transition-transform duration-300">
-                  {outcome.title}
-                </h3>
-                
-                <p className="text-green-200 font-medium">
-                  {outcome.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
+      {/* Stats Section - Horizontal Scrolling Cards */}
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
@@ -483,30 +511,48 @@ const PayrollCompliance: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="group bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 text-center"
-              >
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
+          {/* Horizontal Scrolling Stats */}
+          <div className="relative">
+            {/* Gradient Overlays for Scroll Indication */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            <div className="flex overflow-x-auto pb-8 hide-scrollbar">
+              <div className="flex gap-6 px-8">
+                {stats.map((stat, index) => (
+                  <div
+                    key={index}
+                    className="group bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-xl hover:border-blue-200 transition-all duration-500 transform hover:-translate-y-2 text-center flex-shrink-0 w-72"
+                  >
+                    <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}>
+                      <stat.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    <div className="text-4xl font-bold text-gray-900 mb-2 group-hover:scale-110 transition-transform duration-300">
+                      {stat.value}
+                    </div>
+                    
+                    <div className="text-gray-600 font-medium">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
                 
-                <div className="text-4xl font-bold text-gray-900 mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                
-                <div className="text-gray-600 font-medium">
-                  {stat.label}
+                {/* Additional Card with CTA */}
+                <div className="group bg-gradient-to-r from-green-500 to-teal-600 rounded-3xl p-8 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 text-center flex-shrink-0 w-72 flex flex-col items-center justify-center">
+                  <h3 className="text-2xl font-bold text-white mb-4">Ready to achieve these results?</h3>
+                  <button className="bg-white text-green-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                    <span>Get Started</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action - Split Screen with Image */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600">
           {/* Subtle Pattern */}
@@ -517,37 +563,71 @@ const PayrollCompliance: React.FC = () => {
           <div className="absolute bottom-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 relative overflow-hidden">
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-teal-500/5 to-emerald-500/5 rounded-3xl"></div>
-            
-            <div className="relative">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                Want a Payroll System That Works{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-teal-300">
-                  With Your Workforce, Not Against It?
-                </span>
-              </h2>
-              
-              <p className="text-xl text-slate-200 mb-8 leading-relaxed">
-                Let's build a payroll and compliance system that adapts to your unique workforce needs and keeps you ahead of regulatory requirements.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="tel:+917010203031"
-                  className="group bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Schedule a Compliance Consultation</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500">
+                <img
+                  src="https://images.pexels.com/photos/7654118/pexels-photo-7654118.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                  alt="HR dashboard with payroll analytics"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-900/70 via-green-900/30 to-transparent"></div>
                 
-                <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                  <FileText className="w-5 h-5" />
-                  <span>Download Compliance Guide</span>
-                </button>
+                {/* Overlay Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <BarChart3 className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-xl">Real-time Analytics</div>
+                      <div className="text-green-200 text-sm">Instant compliance insights</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Decorative Elements */}
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-2xl transform -rotate-12 z-0"></div>
+              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-teal-500 to-emerald-600 rounded-lg transform rotate-12 z-0"></div>
+            </div>
+            
+            {/* Right Content */}
+            <div className="order-1 lg:order-2">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-10 relative overflow-hidden">
+                {/* Inner glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-teal-500/5 to-emerald-500/5 rounded-3xl"></div>
+                
+                <div className="relative">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Want a Payroll System That Works{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-teal-300">
+                      With Your Workforce, Not Against It?
+                    </span>
+                  </h2>
+                  
+                  <p className="text-xl text-slate-200 mb-8 leading-relaxed">
+                    Let's build a payroll and compliance system that adapts to your unique workforce needs and keeps you ahead of regulatory requirements.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-4">
+                    <a
+                      href="tel:+917010203031"
+                      className="group bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
+                    >
+                      <Phone className="w-5 h-5" />
+                      <span>Schedule a Compliance Consultation</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    
+                    <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+                      <FileText className="w-5 h-5" />
+                      <span>Download Compliance Guide</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
