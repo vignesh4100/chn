@@ -20,6 +20,7 @@ import WorkforceManagement from './pages/WorkforceManagement';
 import PayrollCompliance from './pages/PayrollCompliance';
 import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
+import TrainingDevelopment from './pages/TrainingDevelopment';
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
           <Route path="/consulting" element={<Consulting />} />
           <Route path="/consulting/workforce" element={<Consulting />} />
           <Route path="/consulting/payroll" element={<Consulting />} />
-          <Route path="/consulting/training" element={<Consulting />} />
+          <Route path="/consulting/training" element={<TrainingDevelopment />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
