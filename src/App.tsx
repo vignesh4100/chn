@@ -21,6 +21,7 @@ import PayrollCompliance from './pages/PayrollCompliance';
 import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
 import TrainingDevelopment from './pages/TrainingDevelopment';
+import Careers from './pages/Careers';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           <Route path="/consulting/payroll" element={<Consulting />} />
           <Route path="/consulting/training" element={<TrainingDevelopment />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
         </Routes>
       </div>
     </Router>

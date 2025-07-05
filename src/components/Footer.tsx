@@ -66,6 +66,10 @@ const Footer: React.FC = () => {
                 <ExternalLink className="w-4 h-4" />
                 Consulting
               </a>
+              <a href="/careers" className="block text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                <ExternalLink className="w-4 h-4" />
+                Careers
+              </a>
             </div>
           </div>
           
@@ -109,6 +113,9 @@ const Footer: React.FC = () => {
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
                 Terms & Conditions
+              </a>
+              <a href="/careers" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                Careers
               </a>
               <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm">
                 Sitemap
