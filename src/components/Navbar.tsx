@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Zap, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, Zap, ArrowRight, Server, Code, Smartphone, Users, Calculator, GraduationCap } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -48,6 +48,18 @@ const Navbar: React.FC = () => {
     return location.pathname.startsWith(path);
   };
 
+  const handleMegaMenuToggle = (menu: string) => {
+    if (activeMegaMenu === menu) {
+      setActiveMegaMenu(null);
+    } else {
+      setActiveMegaMenu(menu);
+    }
+  };
+
+  const closeMegaMenu = () => {
+    setActiveMegaMenu(null);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -81,46 +93,42 @@ const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <div
-                key={item.name}
-                className="relative group"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link
-                  to={item.path}
-                  className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                    isActivePath(item.path)
-                      ? isScrolled
-                        ? 'text-cyan-600 bg-cyan-50'
-                        : 'text-cyan-300 bg-white/10'
-                      : isScrolled
-                        ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item.name}
-                  {item.dropdown && (
-                    <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
-                  )}
-                </Link>
-
-                {/* Dropdown Menu */}
-                {item.dropdown && activeDropdown === item.name && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-xl shadow-gray-900/10 py-2 animate-fade-in-up">
-                    {item.dropdown.map((dropdownItem) => (
-                      <Link
-                        key={dropdownItem.name}
-                        to={dropdownItem.path}
-                        className="flex items-center justify-between px-4 py-3 text-gray-700 hover:text-cyan-600 hover:bg-cyan-50/50 transition-colors duration-200 group/item"
-                      >
-                        <span className="font-medium">{dropdownItem.name}</span>
-                        <ArrowRight className="w-4 h-4 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all duration-200" />
-                      </Link>
-                    ))}
+              <React.Fragment key={item.name}>
+                {!item.dropdown ? (
+                  <Link
+                    to={item.path}
+                    className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                      isActivePath(item.path)
+                        ? isScrolled
+                          ? 'text-cyan-600 bg-cyan-50'
+                          : 'text-cyan-300 bg-white/10'
+                        : isScrolled
+                          ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
+                          : 'text-white/90 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <div className="relative">
+                    <button
+                      onClick={() => handleMegaMenuToggle(item.name)}
+                      className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                        isActivePath(item.path)
+                          ? isScrolled
+                            ? 'text-cyan-600 bg-cyan-50'
+                            : 'text-cyan-300 bg-white/10'
+                          : isScrolled
+                            ? 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                      } ${activeMegaMenu === item.name ? (isScrolled ? 'bg-cyan-50 text-cyan-600' : 'bg-white/10 text-white') : ''}`}
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeMegaMenu === item.name ? 'rotate-180' : ''}`} />
+                    </button>
                   </div>
                 )}
-              </div>
+              </React.Fragment>
             ))}
           </div>
 
@@ -150,6 +158,280 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
+        {/* Mega Menu Dropdowns */}
+        {activeMegaMenu === 'Technology' && (
+          <div className="absolute left-0 right-0 mt-0 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-xl shadow-gray-900/10 py-8 animate-fade-in-up">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-3 gap-8">
+                {/* IT Infrastructure */}
+                <div className="group">
+                  <Link 
+                    to="/technology/infrastructure" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Server className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">IT Infrastructure</h3>
+                      <p className="text-gray-500 text-sm">Comprehensive infrastructure solutions</p>
+                    </div>
+                  </Link>
+                  <ul className="space-y-2 pl-14">
+                    <li>
+                      <Link 
+                        to="/network-management" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Network Management</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/end-user-computing" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>End User Computing</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/cyber-security" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Cyber Security</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/server-administration" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Server Administration</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/lan-cabling-surveillance" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>LAN Cabling & Surveillance</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Software Solutions */}
+                <div className="group">
+                  <Link 
+                    to="/technology/software" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Code className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">Software Solutions</h3>
+                      <p className="text-gray-500 text-sm">Custom development services</p>
+                    </div>
+                  </Link>
+                  <ul className="space-y-2 pl-14">
+                    <li>
+                      <Link 
+                        to="/web-design-development" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Web Design & Development</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/application-development" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Application Development</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/software-solutions" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>All Software Services</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Digital Solutions */}
+                <div className="group">
+                  <Link 
+                    to="/technology/digital" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Smartphone className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">Digital Solutions</h3>
+                      <p className="text-gray-500 text-sm">Digital transformation services</p>
+                    </div>
+                  </Link>
+                  <ul className="space-y-2 pl-14">
+                    <li>
+                      <Link 
+                        to="/data-analytics-visualization" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Data Analytics & Visualization</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/automation-digital-transformation" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>Automation & Digital Transformation</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/technology/digital" 
+                        className="text-gray-600 hover:text-cyan-600 flex items-center gap-2 transition-colors"
+                        onClick={closeMegaMenu}
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100" />
+                        <span>All Digital Services</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {activeMegaMenu === 'Consulting' && (
+          <div className="absolute left-0 right-0 mt-0 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-xl shadow-gray-900/10 py-8 animate-fade-in-up">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-3 gap-8">
+                {/* Workforce Management */}
+                <div className="group">
+                  <Link 
+                    to="/consulting/workforce" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">Workforce Management</h3>
+                      <p className="text-gray-500 text-sm">Strategic workforce solutions</p>
+                    </div>
+                  </Link>
+                  <div className="pl-14 space-y-4">
+                    <p className="text-gray-600">
+                      We deliver strategic workforce management solutions that help you build high-performing teams, reduce hiring overhead, and maintain operational agility.
+                    </p>
+                    <Link 
+                      to="/consulting/workforce" 
+                      className="inline-flex items-center gap-2 text-indigo-600 font-medium hover:text-indigo-800 transition-colors"
+                      onClick={closeMegaMenu}
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+                
+                {/* Payroll & Compliance */}
+                <div className="group">
+                  <Link 
+                    to="/consulting/payroll" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Calculator className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">Payroll & Compliance</h3>
+                      <p className="text-gray-500 text-sm">Error-free payroll management</p>
+                    </div>
+                  </Link>
+                  <div className="pl-14 space-y-4">
+                    <p className="text-gray-600">
+                      We simplify payroll with structured systems, integrated workforce data, and expert advisory support to help you process salaries with confidence.
+                    </p>
+                    <Link 
+                      to="/consulting/payroll" 
+                      className="inline-flex items-center gap-2 text-green-600 font-medium hover:text-green-800 transition-colors"
+                      onClick={closeMegaMenu}
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+                
+                {/* Training & Development */}
+                <div className="group">
+                  <Link 
+                    to="/consulting/training" 
+                    className="flex items-center gap-3 mb-4 hover:text-cyan-600 transition-colors"
+                    onClick={closeMegaMenu}
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <GraduationCap className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-lg">Training & Development</h3>
+                      <p className="text-gray-500 text-sm">Strategic learning solutions</p>
+                    </div>
+                  </Link>
+                  <div className="pl-14 space-y-4">
+                    <p className="text-gray-600">
+                      We help businesses build learning programs that actually work, from onboarding to leadership training, aligned with performance goals.
+                    </p>
+                    <Link 
+                      to="/consulting/training" 
+                      className="inline-flex items-center gap-2 text-amber-600 font-medium hover:text-amber-800 transition-colors"
+                      onClick={closeMegaMenu}
+                    >
+                      <span>Learn more</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-xl">
@@ -159,13 +441,16 @@ const Navbar: React.FC = () => {
                   <Link
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-3 rounded-xl font-medium transition-colors duration-200 ${
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-colors duration-200 ${
                       isActivePath(item.path)
                         ? 'text-cyan-600 bg-cyan-50'
                         : 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
                     }`}
                   >
-                    {item.name}
+                    <span>{item.name}</span>
+                    {item.dropdown && (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
                   </Link>
                   
                   {/* Mobile Dropdown */}
