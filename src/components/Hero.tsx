@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Play, Zap, Code, Database, Shield } from 'lucide-react';
+import { ArrowRight, Play, Zap, Code, Database, Shield, Users, Award, Clock, Brain, Globe, Cpu } from 'lucide-react';
 
 interface HeroProps {
   onOpenModal: () => void;
@@ -125,38 +125,96 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           
           {/* 3D Visual Element */}
           <div className="flex-1 max-w-lg">
-            <div className="relative animate-float">
-              {/* Main Glass Card */}
-              <div className="relative w-full h-96 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
-                {/* Holographic Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-purple-500/10 rounded-3xl animate-pulse"></div>
+            <div className="relative perspective-1000">
+              {/* 3D Brain/Globe Model */}
+              <div className="relative transform-style-3d animate-float">
+                {/* Main 3D Object - Brain/Globe */}
+                <div className="relative w-full h-96 transform-style-3d">
+                  {/* Core Sphere */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/30 to-purple-600/30 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl transform rotate-y-12 hover:rotate-y-0 transition-all duration-1000">
+                    {/* Holographic Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-purple-500/10 rounded-full animate-pulse"></div>
+                    
+                    {/* Brain/Globe Center */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative w-40 h-40">
+                        <Brain className="absolute inset-0 w-full h-full text-white/40" />
+                        <Globe className="absolute inset-0 w-full h-full text-cyan-400/30 animate-spin-slow" />
+                      </div>
+                    </div>
+
+                    {/* Neural Network Connections */}
+                    <div className="absolute inset-0">
+                      {[...Array(12)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="absolute w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"
+                          style={{
+                            top: `${15 + Math.random() * 70}%`,
+                            left: `${15 + Math.random() * 70}%`,
+                            opacity: 0.6 + Math.random() * 0.4,
+                            transform: `scale(${0.5 + Math.random() * 1})`
+                          }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Orbiting Rings */}
+                  <div className="absolute inset-0 animate-spin-slow">
+                    <div className="absolute inset-4 border-2 border-cyan-400/20 rounded-full"></div>
+                  </div>
+                  <div className="absolute inset-0 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '15s' }}>
+                    <div className="absolute inset-8 border-2 border-purple-400/20 rounded-full"></div>
+                  </div>
+                  <div className="absolute inset-0 animate-spin-slow" style={{ animationDuration: '20s' }}>
+                    <div className="absolute inset-12 border-2 border-pink-400/20 rounded-full"></div>
+                  </div>
+                  
+                  {/* Orbiting Tech Elements */}
+                  <div className="absolute inset-0 animate-spin-slow" style={{ animationDuration: '25s' }}>
+                    <div className="absolute top-0 left-1/2 w-12 h-12 -translate-x-1/2 -translate-y-24">
+                      <div className="w-full h-full bg-gradient-to-r from-cyan-500/80 to-blue-500/80 rounded-xl flex items-center justify-center">
+                        <Cpu className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-1/2 w-12 h-12 -translate-x-1/2 translate-y-24">
+                      <div className="w-full h-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
+                        <Database className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute left-0 top-1/2 w-12 h-12 -translate-x-24 -translate-y-1/2">
+                      <div className="w-full h-full bg-gradient-to-r from-green-500/80 to-teal-500/80 rounded-xl flex items-center justify-center">
+                        <Code className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="absolute right-0 top-1/2 w-12 h-12 translate-x-24 -translate-y-1/2">
+                      <div className="w-full h-full bg-gradient-to-r from-amber-500/80 to-orange-500/80 rounded-xl flex items-center justify-center">
+                        <Shield className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 
-                {/* Tech Grid */}
-                <div className="relative grid grid-cols-3 gap-4 h-full">
-                  {[...Array(9)].map((_, i) => (
+                {/* Floating Tech Particles */}
+                <div className="absolute inset-0">
+                  {[...Array(20)].map((_, i) => (
                     <div
                       key={i}
-                      className="bg-gradient-to-br from-cyan-400/20 to-purple-600/20 rounded-xl backdrop-blur-sm border border-white/10 flex items-center justify-center group hover:scale-110 transition-all duration-300"
+                      className="absolute w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-float"
                       style={{
-                        animationDelay: `${i * 0.1}s`
+                        top: `${Math.random() * 100}%`,
+                        left: `${Math.random() * 100}%`,
+                        opacity: 0.4 + Math.random() * 0.6,
+                        animationDelay: `${Math.random() * 5}s`,
+                        animationDuration: `${5 + Math.random() * 5}s`
                       }}
-                    >
-                      <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg opacity-60 group-hover:opacity-100 transition-opacity animate-pulse"></div>
-                    </div>
+                    ></div>
                   ))}
                 </div>
-
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-2xl animate-spin-slow opacity-80"></div>
-                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl animate-bounce opacity-60"></div>
-              </div>
-
-              {/* Orbiting Elements */}
-              <div className="absolute inset-0 animate-spin-slow">
-                <div className="absolute top-0 left-1/2 w-4 h-4 bg-cyan-400 rounded-full -translate-x-1/2 -translate-y-8 animate-pulse"></div>
-                <div className="absolute bottom-0 left-1/2 w-4 h-4 bg-purple-400 rounded-full -translate-x-1/2 translate-y-8 animate-pulse"></div>
-                <div className="absolute left-0 top-1/2 w-4 h-4 bg-pink-400 rounded-full -translate-x-8 -translate-y-1/2 animate-pulse"></div>
-                <div className="absolute right-0 top-1/2 w-4 h-4 bg-cyan-400 rounded-full translate-x-8 -translate-y-1/2 animate-pulse"></div>
+                
+                {/* Glowing Base */}
+                <div className="absolute bottom-0 left-1/2 w-64 h-12 bg-gradient-to-r from-cyan-500/30 to-purple-600/30 rounded-full blur-xl -translate-x-1/2"></div>
               </div>
             </div>
           </div>
