@@ -44,7 +44,7 @@ const TrainingDevelopment: React.FC = () => {
     {
       icon: Presentation,
       title: 'Corporate Training Programs',
-      description: 'We design customized training modules based on your team's functional needs — from leadership and communication to sales, customer service, and project management.',
+      description: 'We design customized training modules based on your team\'s functional needs — from leadership and communication to sales, customer service, and project management.',
       features: [
         'Leadership & management training',
         'Communication & presentation skills',
@@ -59,7 +59,7 @@ const TrainingDevelopment: React.FC = () => {
     {
       icon: Laptop,
       title: 'Technical & Soft Skills Upskilling',
-      description: 'Whether it's mastering emerging technologies or improving interpersonal skills, our expert-led sessions help employees perform confidently in dynamic work environments.',
+      description: 'Whether it\'s mastering emerging technologies or improving interpersonal skills, our expert-led sessions help employees perform confidently in dynamic work environments.',
       features: [
         'Technical certification programs',
         'Digital literacy & software training',
@@ -104,7 +104,7 @@ const TrainingDevelopment: React.FC = () => {
     {
       icon: UserPlus,
       title: 'Managerial & Leadership Development',
-      description: 'We groom your high-potential employees into tomorrow's leaders through structured coaching, mentorship, and simulation-based learning.',
+      description: 'We groom your high-potential employees into tomorrow\'s leaders through structured coaching, mentorship, and simulation-based learning.',
       features: [
         'Leadership competency development',
         'Executive coaching programs',
