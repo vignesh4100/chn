@@ -23,6 +23,7 @@ import AutomationDigitalTransformation from './pages/AutomationDigitalTransforma
 import TrainingDevelopment from './pages/TrainingDevelopment';
 import Careers from './pages/Careers';
 import Blog from './pages/Blog';
+import BlogList from './components/admin/BlogList';
 import Modal from './components/Modal';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
@@ -64,6 +65,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/admin/blogs" element={<BlogList />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           {/* Add more routes as needed */}
