@@ -22,6 +22,7 @@ import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
 import TrainingDevelopment from './pages/TrainingDevelopment';
 import Careers from './pages/Careers';
+import Blog from './pages/Blog';
 import Modal from './components/Modal';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
@@ -62,6 +63,7 @@ function App() {
           <Route path="/consulting/training" element={<TrainingDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           {/* Add more routes as needed */}

@@ -25,9 +25,9 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   ];
 
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden">
+    <section id="hero" className="relative min-h-screen relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
       {/* Optional: Light Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
 
       {/* Floating Particles */}
       <div className="absolute inset-0">
@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 <span className="text-cyan-700 text-sm font-medium">Next-Gen Technology Solutions</span>
               </div> */}
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl mt-10 font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 mt-10">
                 <span className="block">Empowering</span>
                 <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-500 animate-gradient-x">
                   Digital Future
@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 <span className="block">with AI & Tech</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
                 CHN Technologies delivers cutting-edge IT infrastructure, intelligent workforce solutions, 
                 and custom software development that transforms businesses for the digital age.
               </p>
@@ -109,15 +109,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <div className="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto lg:mx-0">
                 <div className="text-center lg:text-left">
                   <div className="text-3xl font-bold text-cyan-600 mb-1">100+</div>
-                  <div className="text-gray-600 text-sm">Projects</div>
+                  <div className="text-slate-300 text-sm">Projects</div>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="text-3xl font-bold text-purple-600 mb-1">99%</div>
-                  <div className="text-gray-600 text-sm">Success Rate</div>
+                  <div className="text-slate-300 text-sm">Success Rate</div>
                 </div>
                 <div className="text-center lg:text-left">
                   <div className="text-3xl font-bold text-pink-500 mb-1">24/7</div>
-                  <div className="text-gray-600 text-sm">Support</div>
+                  <div className="text-slate-300 text-sm">Support</div>
                 </div>
               </div>
             </div>
@@ -129,10 +129,11 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <div className="relative transform-style-3d animate-float">
                 <div className="relative w-full h-96 transform-style-3d">
                   {/* <div className="absolute inset-0 rounded-full shadow-2xl transform rotate-y-12 hover:rotate-y-0 transition-all duration-1000"> */}
-                    <div className="absolute inset-0 rounded-full animate-pulse"></div>
+                      {/* Brain/Globe Center */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="relative w-40 h-40">
-                        <Brain className="absolute inset-0 w-full h-full text-gray-700 drop-shadow-[0_0_6px_rgba(0,0,0,0.1)]" />
+                        <Brain className="absolute inset-0 w-full h-full text-white/70 drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]" />
+                        {/* <Globe className="absolute inset-0 w-full h-full text-cyan-400/30 animate-spin-slow" /> */}
                       </div>
                     </div>
 

@@ -70,6 +70,11 @@ const Footer: React.FC = () => {
                 <ExternalLink className="w-4 h-4" />
                 Careers
               </a>
+              
+              <a href="/blog" className="block text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                <ExternalLink className="w-4 h-4" />
+                Blog
+              </a>
             </div>
           </div>
           
