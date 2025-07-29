@@ -14,8 +14,7 @@ import {
   Plus,
   Settings,
   Activity,
-  PlusCircle,
-  BarChart3
+  PlusCircle
 } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
