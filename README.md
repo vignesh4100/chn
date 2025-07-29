@@ -32,25 +32,25 @@ service cloud.firestore {
   match /databases/{database}/documents {
     // Blog posts
     match /blogs/{document} {
-      allow read: if true; // Public read access
+      allow read: if request.auth != null; // Authenticated read access
       allow write: if request.auth != null; // Authenticated write access
     }
     
     // Blog categories
     match /blog_categories/{document} {
-      allow read: if true; // Public read access
+      allow read: if request.auth != null; // Authenticated read access
       allow write: if request.auth != null; // Authenticated write access
     }
     
     // Articles
     match /articles/{document} {
-      allow read: if true; // Public read access
+      allow read: if request.auth != null; // Authenticated read access
       allow write: if request.auth != null; // Authenticated write access
     }
     
     // Job postings
     match /jobs/{document} {
-      allow read: if true; // Public read access
+      allow read: if request.auth != null; // Authenticated read access
       allow write: if request.auth != null; // Authenticated write access
     }
   }
