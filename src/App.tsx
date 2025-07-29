@@ -38,11 +38,15 @@ function App() {
     useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Check if current route is admin
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <>
     <Router>
       <div className="min-h-screen bg-white">
-        <Navbar />
+        {!isAdminRoute && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About onOpenModal={() => setIsModalOpen(true)}/>} />
@@ -80,7 +84,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        {!isAdminRoute && <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
           </>
   );
 }
