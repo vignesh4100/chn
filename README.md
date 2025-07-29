@@ -41,6 +41,18 @@ service cloud.firestore {
       allow read: if true; // Public read access
       allow write: if request.auth != null; // Authenticated write access
     }
+    
+    // Articles
+    match /articles/{document} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Authenticated write access
+    }
+    
+    // Job postings
+    match /jobs/{document} {
+      allow read: if true; // Public read access
+      allow write: if request.auth != null; // Authenticated write access
+    }
   }
 }
 ```

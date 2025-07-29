@@ -13,7 +13,8 @@ import {
   BarChart3,
   Plus,
   Settings,
-  Activity
+  Activity,
+  PlusCircle
 } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
