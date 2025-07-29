@@ -107,12 +107,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       isSection: true
     },
     {
-      title: 'Analytics & Reports',
-      icon: BarChart3,
-      path: '/admin/analytics',
-      color: 'text-indigo-600'
-    },
-    {
       title: 'System Settings',
       icon: Settings,
       path: '/admin/settings',

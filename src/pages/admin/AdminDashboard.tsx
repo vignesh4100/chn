@@ -14,7 +14,8 @@ import {
   Plus,
   Settings,
   Activity,
-  PlusCircle
+  PlusCircle,
+  BarChart3
 } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
@@ -231,25 +232,7 @@ const AdminDashboard: React.FC = () => {
         {/* System Management Section */}
         <div>
           <h2 className="text-2xl font-bold text-gray-900 mb-6">System Management</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-indigo-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Analytics</h3>
-                  <p className="text-gray-600 text-sm">View reports and insights</p>
-                </div>
-              </div>
-              <Link
-                to="/admin/analytics"
-                className="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-center transition-colors block"
-              >
-                View Analytics
-              </Link>
-            </div>
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg shadow-sm p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
