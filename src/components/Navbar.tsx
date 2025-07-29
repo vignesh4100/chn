@@ -77,8 +77,8 @@ const Navbar: React.FC = () => {
                   <Link
                     to={item.path}
                     className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
-                      ? 'text-cyan-600 bg-cyan-50'
-                      : 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'}`}
+                      ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
+                      : 'text-white hover:text-cyan-300 hover:bg-white/10'}`}
                   >
                     {item.name}
                   </Link>
@@ -86,8 +86,8 @@ const Navbar: React.FC = () => {
                   <>
                     <button
                       className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
-                        ? 'text-cyan-600 bg-cyan-50'
-                        : 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'}`}
+                        ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
+                        : 'text-white hover:text-cyan-300 hover:bg-white/10'}`}
                     >
                       {item.name}
                       <ChevronDown className="w-4 h-4 transition-transform group-hover/menu:rotate-180" />
@@ -164,7 +164,7 @@ const Navbar: React.FC = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-xl text-white hover:bg-white/10 transition-colors"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -183,14 +183,14 @@ const Navbar: React.FC = () => {
                   className={`block px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                     isActivePath(item.path)
                       ? 'text-cyan-600 bg-cyan-50'
-                      : 'text-gray-700 hover:text-cyan-600 hover:bg-gray-50'
+                      : 'text-gray-800 hover:text-cyan-600 hover:bg-gray-50'
                   }`}
                 >
                   {item.name}
                 </Link>
               ) : (
                 <div key={item.name}>
-                  <span className="block px-4 py-2 text-gray-700 font-semibold">{item.name}</span>
+                  <span className="block px-4 py-2 text-gray-800 font-semibold">{item.name}</span>
                   {item.name === 'Technology' && (
                     <div className="pl-6 space-y-1">
                       <Link to="/network-management" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Network Management</Link>
