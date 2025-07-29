@@ -5,14 +5,12 @@ import { auth } from '../../config/firebase';
 import { 
   LayoutDashboard,
   FileText, 
-  Newspaper,
   Briefcase,
   BookOpen,
   LogOut, 
   Menu, 
   X,
   User,
-  PlusCircle,
   Settings,
   BarChart3
 } from 'lucide-react';
@@ -52,13 +50,20 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
   const menuItems = [
     {
-      title: 'Dashboard',
+      title: 'Overview',
       icon: LayoutDashboard,
       path: '/admin',
       color: 'text-blue-600'
     },
     {
-      title: 'Blog Posts',
+      title: 'Content Management',
+      icon: FileText,
+      path: '/admin/content',
+      color: 'text-cyan-600',
+      isSection: true
+    },
+    {
+      title: 'Blogs',
       icon: FileText,
       path: '/admin/blogs',
       color: 'text-cyan-600',
@@ -78,14 +83,11 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       ]
     },
     {
-      title: 'News',
-      icon: Newspaper,
-      path: '/admin/news',
-      color: 'text-green-600',
-      submenu: [
-        { title: 'All News', path: '/admin/news' },
-        { title: 'New News', path: '/admin/news/new' }
-      ]
+      title: 'Career Management',
+      icon: Briefcase,
+      path: '/admin/careers',
+      color: 'text-orange-600',
+      isSection: true
     },
     {
       title: 'Job Postings',
@@ -98,13 +100,20 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
       ]
     },
     {
-      title: 'Analytics',
+      title: 'System',
+      icon: Settings,
+      path: '/admin/system',
+      color: 'text-gray-600',
+      isSection: true
+    },
+    {
+      title: 'Analytics & Reports',
       icon: BarChart3,
       path: '/admin/analytics',
       color: 'text-indigo-600'
     },
     {
-      title: 'Settings',
+      title: 'System Settings',
       icon: Settings,
       path: '/admin/settings',
       color: 'text-gray-600'
@@ -156,6 +165,15 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           {menuItems.map((item, index) => {
             const isActive = location.pathname === item.path || 
                            (item.submenu && item.submenu.some(sub => location.pathname === sub.path));
+            
+            // Section headers
+            if (item.isSection) {
+              return (
+                <div key={index} className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-6 first:mt-0">
+                  {item.title}
+                </div>
+              );
+            }
             
             return (
               <div key={index} className="mb-1">
@@ -231,7 +249,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 <Menu className="w-5 h-5" />
               </button>
               <h1 className="text-xl font-semibold text-gray-900">
-                Content Management System
+                Admin Panel
               </h1>
             </div>
             

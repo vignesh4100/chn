@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
-import { blogService, articleService, newsService, jobService } from '../../services/cmsService';
+import { blogService, articleService, jobService } from '../../services/cmsService';
 import { 
   FileText, 
   BookOpen, 
-  Newspaper, 
   Briefcase,
-  PlusCircle,
   TrendingUp,
   Users,
   Calendar,
   Eye,
-  BarChart3
+  BarChart3,
+  Plus,
+  Settings,
+  Activity
 } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
   const [stats, setStats] = useState({
     blogs: { total: 0, published: 0, draft: 0, today: 0 },
     articles: { total: 0, published: 0, draft: 0, today: 0 },
-    news: { total: 0, published: 0, draft: 0, today: 0 },
     jobs: { total: 0, published: 0, draft: 0, today: 0 }
   });
   const [loading, setLoading] = useState(true);
@@ -30,17 +30,15 @@ const AdminDashboard: React.FC = () => {
 
   const loadStats = async () => {
     try {
-      const [blogStats, articleStats, newsStats, jobStats] = await Promise.all([
+      const [blogStats, articleStats, jobStats] = await Promise.all([
         blogService.getStats(),
         articleService.getStats(),
-        newsService.getStats(),
         jobService.getStats()
       ]);
 
       setStats({
         blogs: blogStats,
         articles: articleStats,
-        news: newsStats,
         jobs: jobStats
       });
     } catch (error) {
@@ -52,7 +50,7 @@ const AdminDashboard: React.FC = () => {
 
   const contentTypes = [
     {
-      title: 'Blog Posts',
+      title: 'Blogs',
       icon: FileText,
       color: 'from-cyan-500 to-blue-600',
       bgColor: 'from-cyan-50 to-blue-50',
@@ -70,16 +68,6 @@ const AdminDashboard: React.FC = () => {
       path: '/admin/articles',
       newPath: '/admin/articles/new',
       stats: stats.articles
-    },
-    {
-      title: 'News',
-      icon: Newspaper,
-      color: 'from-green-500 to-emerald-600',
-      bgColor: 'from-green-50 to-emerald-50',
-      textColor: 'text-green-600',
-      path: '/admin/news',
-      newPath: '/admin/news/new',
-      stats: stats.news
     },
     {
       title: 'Job Postings',
@@ -114,9 +102,12 @@ const AdminDashboard: React.FC = () => {
     <AdminLayout>
       <div className="space-y-8">
         {/* Welcome Header */}
-        <div className="bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl p-8 text-white">
-          <h1 className="text-3xl font-bold mb-2">Welcome to CMS Dashboard</h1>
-          <p className="text-cyan-100">Manage all your content from one central location</p>
+        <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-purple-900 rounded-2xl p-8 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
+          <div className="relative">
+            <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
+            <p className="text-slate-200">Manage your website content, analytics, and system settings</p>
+          </div>
         </div>
 
         {/* Overall Stats */}
@@ -170,8 +161,10 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Type Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Content Management Section */}
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Content Management</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {contentTypes.map((type, index) => (
             <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
               <div className={`bg-gradient-to-r ${type.color} p-6`}>
@@ -209,7 +202,7 @@ const AdminDashboard: React.FC = () => {
                     <p className="text-gray-600 text-sm">Drafts</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-purple-600">{type.stats.today}</p>
+                      <Plus className="w-5 h-5" />
                     <p className="text-gray-600 text-sm">Today</p>
                   </div>
                 </div>
@@ -232,39 +225,62 @@ const AdminDashboard: React.FC = () => {
             </div>
           ))}
         </div>
+        </div>
 
-        {/* Quick Actions */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link
-              to="/admin/blogs/new"
-              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <FileText className="w-5 h-5 text-cyan-600" />
-              <span className="font-medium">New Blog Post</span>
-            </Link>
-            <Link
-              to="/admin/articles/new"
-              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <BookOpen className="w-5 h-5 text-purple-600" />
-              <span className="font-medium">New Article</span>
-            </Link>
-            <Link
-              to="/admin/news/new"
-              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <Newspaper className="w-5 h-5 text-green-600" />
-              <span className="font-medium">New News</span>
-            </Link>
-            <Link
-              to="/admin/jobs/new"
-              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              <Briefcase className="w-5 h-5 text-orange-600" />
-              <span className="font-medium">New Job</span>
-            </Link>
+        {/* System Management Section */}
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">System Management</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                  <BarChart3 className="w-6 h-6 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Analytics</h3>
+                  <p className="text-gray-600 text-sm">View reports and insights</p>
+                </div>
+              </div>
+              <Link
+                to="/admin/analytics"
+                className="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-center transition-colors block"
+              >
+                View Analytics
+              </Link>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <Settings className="w-6 h-6 text-gray-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Settings</h3>
+                  <p className="text-gray-600 text-sm">Configure system settings</p>
+                </div>
+              </div>
+              <Link
+                to="/admin/settings"
+                className="w-full bg-gray-50 hover:bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-center transition-colors block"
+              >
+                Manage Settings
+              </Link>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <Activity className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">System Status</h3>
+                  <p className="text-gray-600 text-sm">Monitor system health</p>
+                </div>
+              </div>
+              <div className="w-full bg-green-50 text-green-700 px-4 py-2 rounded-lg text-center">
+                All Systems Operational
+              </div>
+            </div>
           </div>
         </div>
       </div>

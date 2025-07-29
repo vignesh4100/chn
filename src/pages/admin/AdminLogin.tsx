@@ -47,8 +47,8 @@ const AdminLogin: React.FC = () => {
             <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <LayoutDashboard className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">CMS Admin Login</h1>
-            <p className="text-slate-300">Sign in to manage your content</p>
+            <h1 className="text-3xl font-bold text-white mb-2">Admin Login</h1>
+            <p className="text-slate-300">Sign in to access the admin panel</p>
           </div>
 
           {error && (
@@ -102,13 +102,13 @@ const AdminLogin: React.FC = () => {
               disabled={loading}
               className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-cyan-600 hover:to-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Signing in...' : 'Sign In to CMS'}
+              {loading ? 'Signing in...' : 'Sign In to Admin Panel'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-slate-400 text-sm">
-              Manage blogs, articles, news, and job postings
+              Manage content, analytics, and system settings
             </p>
           </div>
         </div>

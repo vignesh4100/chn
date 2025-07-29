@@ -166,5 +166,4 @@ export class CMSService<T extends BaseContent> {
 // Service instances for different content types
 export const blogService = new CMSService('blogs');
 export const articleService = new CMSService('articles');
-export const newsService = new CMSService('news');
 export const jobService = new CMSService('jobs');

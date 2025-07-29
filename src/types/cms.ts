@@ -49,7 +49,7 @@ export interface User {
   role: 'admin' | 'editor' | 'author';
 }
 
-export type ContentType = 'blogs' | 'articles' | 'news' | 'jobs';
+export type ContentType = 'blogs' | 'articles' | 'jobs';
 
 export interface ContentStats {
   total: number;
