@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
-import { blogService, articleService, jobService } from '../../services/cmsService';
+import { CMSService } from '../../services/cmsService';
 import { 
   FileText, 
   BookOpen, 
@@ -31,6 +31,10 @@ const AdminDashboard: React.FC = () => {
 
   const loadStats = async () => {
     try {
+      const blogService = new CMSService('blogs');
+      const articleService = new CMSService('articles');
+      const jobService = new CMSService('jobs');
+      
       const [blogStats, articleStats, jobStats] = await Promise.all([
         blogService.getStats(),
         articleService.getStats(),

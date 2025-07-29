@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { blogService } from '../services/cmsService';
+import { CMSService } from '../services/cmsService';
 import { BlogPost } from '../types/cms';
 import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,8 @@ const Blog: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  
+  const blogService = new CMSService('blogs');
 
   useEffect(() => {
     loadPosts();

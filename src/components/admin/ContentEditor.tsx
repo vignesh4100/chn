@@ -137,6 +137,15 @@ const ContentEditor: React.FC<ContentEditorProps> = ({
       ['clean']
     ]
   };
+  
+  const quillFormats = [
+    'header', 'font', 'size',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image', 'video',
+    'color', 'background',
+    'align', 'script'
+  ];
 
   const getContentTypeTitle = () => {
     const titles = {
@@ -542,6 +551,7 @@ const ContentEditor: React.FC<ContentEditorProps> = ({
               value={formData.content || ''}
               onChange={(content) => setFormData((prev: any) => ({ ...prev, content }))}
               modules={quillModules}
+              formats={quillFormats}
               style={{ minHeight: '400px' }}
             />
           </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { blogService } from '../services/cmsService';
+import { CMSService } from '../services/cmsService';
 import { BlogPost as BlogPostType } from '../types/cms';
 import { Calendar, User, ArrowLeft, Share2, Heart, Tag, Clock } from 'lucide-react';
 import Footer from '../components/Footer';
@@ -10,6 +10,8 @@ const BlogPost: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  
+  const blogService = new CMSService('blogs');
 
   useEffect(() => {
     if (slug) {
