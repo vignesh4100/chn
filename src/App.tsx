@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -32,10 +32,11 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import NewPost from './pages/admin/NewPost';
 import EditPost from './pages/admin/EditPost';
 
-function App() {
-
+const AppContent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-    useEffect(() => {
+  const location = useLocation();
+  
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -43,49 +44,50 @@ function App() {
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   return (
-    <>
+    <div className="min-h-screen bg-white">
+      {!isAdminRoute && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/technology" element={<Technology />} />
+        <Route path="/technology/infrastructure" element={<ITInfrastructure onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/technology/software" element={<SoftwareSolutions />} />
+        <Route path="/technology/digital" element={<DigitalSolutions onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/web-design-development" element={<WebDesignDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/application-development" element={<ApplicationDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/consulting/workforce" element={<WorkforceManagement onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/consulting/payroll" element={<PayrollCompliance onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/data-analytics-visualization" element={<DataAnalyticsVisualization />} />
+        <Route path="/automation-digital-transformation" element={<AutomationDigitalTransformation />} />
+        <Route path="/network-management" element={<NetworkManagement />} />
+        <Route path="/end-user-computing" element={<EndUserComputing />} />
+        <Route path="/cyber-security" element={<CyberSecurity />} />
+        <Route path="/server-administration" element={<ServerAdministration />} />
+        <Route path="/lan-cabling-surveillance" element={<LANCablingSurveillance />} />
+        <Route path="/software-solutions" element={<SoftwareSolutions onOpenModal={() => setIsModalOpen(true)}/>}/>
+        <Route path="/consulting" element={<Consulting />} />
+        <Route path="/consulting/training" element={<TrainingDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogs/:slug" element={<BlogPost />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/new" element={<NewPost />} />
+        <Route path="/admin/edit/:id" element={<EditPost />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      </Routes>
+      {!isAdminRoute && <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+    </div>
+  );
+};
+
+function App() {
+  return (
     <Router>
-      <div className="min-h-screen bg-white">
-        {!isAdminRoute && <Navbar />}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/technology/infrastructure" element={<ITInfrastructure onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/technology/software" element={<SoftwareSolutions />} />
-          <Route path="/technology/digital" element={<DigitalSolutions onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/web-design-development" element={<WebDesignDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/application-development" element={<ApplicationDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/consulting/workforce" element={<WorkforceManagement onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/consulting/payroll" element={<PayrollCompliance onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/data-analytics-visualization" element={<DataAnalyticsVisualization />} />
-          <Route path="/automation-digital-transformation" element={<AutomationDigitalTransformation />} />
-          <Route path="/network-management" element={<NetworkManagement />} />
-          <Route path="/end-user-computing" element={<EndUserComputing />} />
-          <Route path="/cyber-security" element={<CyberSecurity />} />
-          <Route path="/server-administration" element={<ServerAdministration />} />
-          <Route path="/lan-cabling-surveillance" element={<LANCablingSurveillance />} />
-          <Route path="/software-solutions" element={<SoftwareSolutions onOpenModal={() => setIsModalOpen(true)}/>}/>
-          <Route path="/consulting" element={<Consulting />} />
-          {/* <Route path="/consulting/workforce" element={<Consulting />} />
-          <Route path="/consulting/payroll" element={<Consulting />} /> */}
-          <Route path="/consulting/training" element={<TrainingDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blogs/:slug" element={<BlogPost />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/new" element={<NewPost />} />
-          <Route path="/admin/edit/:id" element={<EditPost />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-          {/* Add more routes as needed */}
-        </Routes>
-      </div>
+      <AppContent />
     </Router>
-        {!isAdminRoute && <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
-          </>
   );
 }
 
