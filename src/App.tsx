@@ -22,11 +22,15 @@ import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
 import TrainingDevelopment from './pages/TrainingDevelopment';
 import Careers from './pages/Careers';
-import BlogList from './components/admin/BlogList';
 import Modal from './components/Modal';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import NewPost from './pages/admin/NewPost';
+import EditPost from './pages/admin/EditPost';
 
 function App() {
 
@@ -65,7 +69,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/admin/blogs" element={<BlogList />} />
+          <Route path="/blogs/:slug" element={<BlogPost />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/new" element={<NewPost />} />
+          <Route path="/admin/edit/:id" element={<EditPost />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           {/* Add more routes as needed */}
