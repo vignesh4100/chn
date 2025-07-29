@@ -1,7 +1,7 @@
 export const cloudinaryConfig = {
-  cloudName: 'your-cloud-name', // Replace with your Cloudinary cloud name
-  apiKey: 'your-api-key', // Replace with your Cloudinary API key
-  apiSecret: 'your-api-secret', // Replace with your Cloudinary API secret
+  cloudName: 'dprredz2j', // Replace with your Cloudinary cloud name
+  apiKey: '653631547718184', // Replace with your Cloudinary API key
+  apiSecret: 'bH2QScCuk_MSwbxg7xXWqLtq8B0', // Replace with your Cloudinary API secret
   uploadPreset: 'blog-images' // Create this preset in your Cloudinary dashboard
 };
 
