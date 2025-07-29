@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 import { 
+  LayoutDashboard,
   FileText, 
+  Newspaper,
+  Briefcase,
+  BookOpen,
   LogOut, 
   Menu, 
   X,
   User,
-  PlusCircle
+  PlusCircle,
+  Settings,
+  BarChart3
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -44,6 +50,67 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     }
   };
 
+  const menuItems = [
+    {
+      title: 'Dashboard',
+      icon: LayoutDashboard,
+      path: '/admin',
+      color: 'text-blue-600'
+    },
+    {
+      title: 'Blog Posts',
+      icon: FileText,
+      path: '/admin/blogs',
+      color: 'text-cyan-600',
+      submenu: [
+        { title: 'All Posts', path: '/admin/blogs' },
+        { title: 'New Post', path: '/admin/blogs/new' }
+      ]
+    },
+    {
+      title: 'Articles',
+      icon: BookOpen,
+      path: '/admin/articles',
+      color: 'text-purple-600',
+      submenu: [
+        { title: 'All Articles', path: '/admin/articles' },
+        { title: 'New Article', path: '/admin/articles/new' }
+      ]
+    },
+    {
+      title: 'News',
+      icon: Newspaper,
+      path: '/admin/news',
+      color: 'text-green-600',
+      submenu: [
+        { title: 'All News', path: '/admin/news' },
+        { title: 'New News', path: '/admin/news/new' }
+      ]
+    },
+    {
+      title: 'Job Postings',
+      icon: Briefcase,
+      path: '/admin/jobs',
+      color: 'text-orange-600',
+      submenu: [
+        { title: 'All Jobs', path: '/admin/jobs' },
+        { title: 'New Job', path: '/admin/jobs/new' }
+      ]
+    },
+    {
+      title: 'Analytics',
+      icon: BarChart3,
+      path: '/admin/analytics',
+      color: 'text-indigo-600'
+    },
+    {
+      title: 'Settings',
+      icon: Settings,
+      path: '/admin/settings',
+      color: 'text-gray-600'
+    }
+  ];
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
@@ -73,9 +140,9 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
         <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <FileText className="w-5 h-5 text-white" />
+              <LayoutDashboard className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Blog CMS</span>
+            <span className="text-xl font-bold text-gray-900">CMS Admin</span>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -85,39 +152,51 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           </button>
         </div>
 
-        <nav className="mt-6 px-3">
-          <button
-            onClick={() => {
-              navigate('/admin');
-              setSidebarOpen(false);
-            }}
-            className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left transition-colors duration-200 mb-1 ${
-              location.pathname === '/admin'
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <FileText className="w-5 h-5" />
-            <span className="font-medium">All Posts</span>
-          </button>
-          
-          <button
-            onClick={() => {
-              navigate('/admin/new');
-              setSidebarOpen(false);
-            }}
-            className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left transition-colors duration-200 mb-1 ${
-              location.pathname === '/admin/new'
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
-            }`}
-          >
-            <PlusCircle className="w-5 h-5" />
-            <span className="font-medium">New Post</span>
-          </button>
+        <nav className="mt-6 px-3 flex-1 overflow-y-auto">
+          {menuItems.map((item, index) => {
+            const isActive = location.pathname === item.path || 
+                           (item.submenu && item.submenu.some(sub => location.pathname === sub.path));
+            
+            return (
+              <div key={index} className="mb-1">
+                <Link
+                  to={item.path}
+                  onClick={() => setSidebarOpen(false)}
+                  className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg text-left transition-colors duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  <item.icon className={`w-5 h-5 ${isActive ? 'text-white' : item.color}`} />
+                  <span className="font-medium">{item.title}</span>
+                </Link>
+                
+                {/* Submenu */}
+                {item.submenu && isActive && (
+                  <div className="ml-8 mt-2 space-y-1">
+                    {item.submenu.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        to={subItem.path}
+                        onClick={() => setSidebarOpen(false)}
+                        className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                          location.pathname === subItem.path
+                            ? 'bg-gray-100 text-gray-900 font-medium'
+                            : 'text-gray-600 hover:bg-gray-50'
+                        }`}
+                      >
+                        {subItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-gray-200">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
               <User className="w-4 h-4 text-gray-600" />
@@ -152,8 +231,18 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 <Menu className="w-5 h-5" />
               </button>
               <h1 className="text-xl font-semibold text-gray-900">
-                Blog Management
+                Content Management System
               </h1>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <Link
+                to="/"
+                target="_blank"
+                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                View Site
+              </Link>
             </div>
           </div>
         </header>

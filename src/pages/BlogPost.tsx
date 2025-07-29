@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getBlogPostBySlug } from '../services/blogService';
-import { BlogPost as BlogPostType } from '../types/blog';
-import { Calendar, User, ArrowLeft, Share2, Heart } from 'lucide-react';
+import { blogService } from '../services/cmsService';
+import { BlogPost as BlogPostType } from '../types/cms';
+import { Calendar, User, ArrowLeft, Share2, Heart, Tag, Clock } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const BlogPost: React.FC = () => {
@@ -19,9 +19,9 @@ const BlogPost: React.FC = () => {
 
   const loadPost = async (postSlug: string) => {
     try {
-      const blogPost = await getBlogPostBySlug(postSlug);
-      if (blogPost) {
-        setPost(blogPost);
+      const blogPost = await blogService.getBySlug(postSlug);
+      if (blogPost && blogPost.published) {
+        setPost(blogPost as BlogPostType);
       } else {
         navigate('/blogs');
       }
@@ -38,7 +38,7 @@ const BlogPost: React.FC = () => {
       try {
         await navigator.share({
           title: post.title,
-          text: post.title,
+          text: post.excerpt || post.title,
           url: window.location.href,
         });
       } catch (error) {
@@ -89,9 +89,23 @@ const BlogPost: React.FC = () => {
           </button>
           
           <div className="text-center mb-8">
+            {post.category && (
+              <div className="mb-4">
+                <span className="bg-cyan-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  {post.category}
+                </span>
+              </div>
+            )}
+            
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               {post.title}
             </h1>
+            
+            {post.excerpt && (
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                {post.excerpt}
+              </p>
+            )}
             
             <div className="flex items-center justify-center gap-6 text-gray-600 mb-8">
               <span className="flex items-center gap-2">
@@ -106,6 +120,12 @@ const BlogPost: React.FC = () => {
                   day: 'numeric'
                 })}
               </span>
+              {post.seoTitle && (
+                <span className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  5 min read
+                </span>
+              )}
             </div>
             
             <div className="flex items-center justify-center gap-4">
@@ -142,6 +162,24 @@ const BlogPost: React.FC = () => {
           <article className="prose prose-lg prose-cyan max-w-none">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
+          
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+                  >
+                    <Tag className="w-3 h-3" />
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           
           {/* Author Info */}
           <div className="mt-12 pt-8 border-t border-gray-200">

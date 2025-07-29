@@ -1,50 +1,103 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
-import { getAllBlogPosts, deleteBlogPost } from '../../services/blogService';
-import { BlogPost } from '../../types/blog';
+import { blogService, articleService, newsService, jobService } from '../../services/cmsService';
 import { 
-  PlusCircle, 
-  Edit, 
-  Trash2, 
-  Eye, 
+  FileText, 
+  BookOpen, 
+  Newspaper, 
+  Briefcase,
+  PlusCircle,
+  TrendingUp,
+  Users,
   Calendar,
-  User,
-  FileText
+  Eye,
+  BarChart3
 } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [stats, setStats] = useState({
+    blogs: { total: 0, published: 0, draft: 0, today: 0 },
+    articles: { total: 0, published: 0, draft: 0, today: 0 },
+    news: { total: 0, published: 0, draft: 0, today: 0 },
+    jobs: { total: 0, published: 0, draft: 0, today: 0 }
+  });
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    loadPosts();
+    loadStats();
   }, []);
 
-  const loadPosts = async () => {
+  const loadStats = async () => {
     try {
-      const blogPosts = await getAllBlogPosts();
-      setPosts(blogPosts);
+      const [blogStats, articleStats, newsStats, jobStats] = await Promise.all([
+        blogService.getStats(),
+        articleService.getStats(),
+        newsService.getStats(),
+        jobService.getStats()
+      ]);
+
+      setStats({
+        blogs: blogStats,
+        articles: articleStats,
+        news: newsStats,
+        jobs: jobStats
+      });
     } catch (error) {
-      console.error('Error loading posts:', error);
+      console.error('Error loading stats:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!window.confirm('Are you sure you want to delete this post?')) {
-      return;
+  const contentTypes = [
+    {
+      title: 'Blog Posts',
+      icon: FileText,
+      color: 'from-cyan-500 to-blue-600',
+      bgColor: 'from-cyan-50 to-blue-50',
+      textColor: 'text-cyan-600',
+      path: '/admin/blogs',
+      newPath: '/admin/blogs/new',
+      stats: stats.blogs
+    },
+    {
+      title: 'Articles',
+      icon: BookOpen,
+      color: 'from-purple-500 to-indigo-600',
+      bgColor: 'from-purple-50 to-indigo-50',
+      textColor: 'text-purple-600',
+      path: '/admin/articles',
+      newPath: '/admin/articles/new',
+      stats: stats.articles
+    },
+    {
+      title: 'News',
+      icon: Newspaper,
+      color: 'from-green-500 to-emerald-600',
+      bgColor: 'from-green-50 to-emerald-50',
+      textColor: 'text-green-600',
+      path: '/admin/news',
+      newPath: '/admin/news/new',
+      stats: stats.news
+    },
+    {
+      title: 'Job Postings',
+      icon: Briefcase,
+      color: 'from-orange-500 to-red-600',
+      bgColor: 'from-orange-50 to-red-50',
+      textColor: 'text-orange-600',
+      path: '/admin/jobs',
+      newPath: '/admin/jobs/new',
+      stats: stats.jobs
     }
+  ];
 
-    try {
-      await deleteBlogPost(id);
-      setPosts(posts.filter(post => post.id !== id));
-    } catch (error) {
-      console.error('Error deleting post:', error);
-      alert('Failed to delete post');
-    }
+  const totalStats = {
+    total: Object.values(stats).reduce((sum, stat) => sum + stat.total, 0),
+    published: Object.values(stats).reduce((sum, stat) => sum + stat.published, 0),
+    draft: Object.values(stats).reduce((sum, stat) => sum + stat.draft, 0),
+    today: Object.values(stats).reduce((sum, stat) => sum + stat.today, 0)
   };
 
   if (loading) {
@@ -59,32 +112,47 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <AdminLayout>
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
-            <p className="text-gray-600 mt-1">Manage your blog content</p>
-          </div>
-          <button
-            onClick={() => navigate('/admin/new')}
-            className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-colors"
-          >
-            <PlusCircle className="w-5 h-5" />
-            New Post
-          </button>
+      <div className="space-y-8">
+        {/* Welcome Header */}
+        <div className="bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl p-8 text-white">
+          <h1 className="text-3xl font-bold mb-2">Welcome to CMS Dashboard</h1>
+          <p className="text-cyan-100">Manage all your content from one central location</p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Overall Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
-                <FileText className="w-6 h-6 text-cyan-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">{posts.length}</p>
-                <p className="text-gray-600">Total Posts</p>
+                <p className="text-2xl font-bold text-gray-900">{totalStats.total}</p>
+                <p className="text-gray-600">Total Content</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <Eye className="w-6 h-6 text-green-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{totalStats.published}</p>
+                <p className="text-gray-600">Published</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                <FileText className="w-6 h-6 text-yellow-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{totalStats.draft}</p>
+                <p className="text-gray-600">Drafts</p>
               </div>
             </div>
           </div>
@@ -95,111 +163,109 @@ const AdminDashboard: React.FC = () => {
                 <Calendar className="w-6 h-6 text-purple-600" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-900">
-                  {posts.filter(post => {
-                    const today = new Date();
-                    const postDate = new Date(post.createdAt);
-                    return postDate.toDateString() === today.toDateString();
-                  }).length}
-                </p>
-                <p className="text-gray-600">Today</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <User className="w-6 h-6 text-green-600" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-gray-900">
-                  {new Set(posts.map(post => post.author)).size}
-                </p>
-                <p className="text-gray-600">Authors</p>
+                <p className="text-2xl font-bold text-gray-900">{totalStats.today}</p>
+                <p className="text-gray-600">Created Today</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Posts List */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h2 className="text-lg font-semibold text-gray-900">All Posts</h2>
-          </div>
-          
-          {posts.length === 0 ? (
-            <div className="text-center py-12">
-              <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No posts yet</h3>
-              <p className="text-gray-600 mb-6">Get started by creating your first blog post</p>
-              <button
-                onClick={() => navigate('/admin/new')}
-                className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-colors"
-              >
-                Create First Post
-              </button>
-            </div>
-          ) : (
-            <div className="divide-y divide-gray-200">
-              {posts.map((post) => (
-                <div key={post.id} className="p-6 hover:bg-gray-50 transition-colors">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-2">
-                        {post.coverImage && (
-                          <img
-                            src={post.coverImage}
-                            alt={post.title}
-                            className="w-16 h-16 object-cover rounded-lg"
-                          />
-                        )}
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                            {post.title}
-                          </h3>
-                          <div className="flex items-center gap-4 text-sm text-gray-600">
-                            <span className="flex items-center gap-1">
-                              <User className="w-4 h-4" />
-                              {post.author}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Calendar className="w-4 h-4" />
-                              {new Date(post.createdAt).toLocaleDateString()}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
+        {/* Content Type Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {contentTypes.map((type, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <div className={`bg-gradient-to-r ${type.color} p-6`}>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                      <type.icon className="w-6 h-6 text-white" />
                     </div>
-                    
-                    <div className="flex items-center gap-2 ml-4">
-                      <button
-                        onClick={() => window.open(`/blogs/${post.slug}`, '_blank')}
-                        className="p-2 text-gray-600 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-colors"
-                        title="View Post"
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => navigate(`/admin/edit/${post.id}`)}
-                        className="p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors"
-                        title="Edit Post"
-                      >
-                        <Edit className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => handleDelete(post.id!)}
-                        className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                        title="Delete Post"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{type.title}</h3>
+                      <p className="text-white/80">Manage your {type.title.toLowerCase()}</p>
                     </div>
                   </div>
+                  <Link
+                    to={type.newPath}
+                    className="bg-white/20 hover:bg-white/30 text-white p-2 rounded-lg transition-colors"
+                  >
+                    <PlusCircle className="w-5 h-5" />
+                  </Link>
                 </div>
-              ))}
+              </div>
+              
+              <div className="p-6">
+                <div className="grid grid-cols-4 gap-4 mb-4">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-gray-900">{type.stats.total}</p>
+                    <p className="text-gray-600 text-sm">Total</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-green-600">{type.stats.published}</p>
+                    <p className="text-gray-600 text-sm">Published</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-yellow-600">{type.stats.draft}</p>
+                    <p className="text-gray-600 text-sm">Drafts</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-purple-600">{type.stats.today}</p>
+                    <p className="text-gray-600 text-sm">Today</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-3">
+                  <Link
+                    to={type.path}
+                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-center transition-colors"
+                  >
+                    View All
+                  </Link>
+                  <Link
+                    to={type.newPath}
+                    className={`flex-1 bg-gradient-to-r ${type.color} text-white px-4 py-2 rounded-lg text-center hover:opacity-90 transition-opacity`}
+                  >
+                    Create New
+                  </Link>
+                </div>
+              </div>
             </div>
-          )}
+          ))}
+        </div>
+
+        {/* Quick Actions */}
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link
+              to="/admin/blogs/new"
+              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <FileText className="w-5 h-5 text-cyan-600" />
+              <span className="font-medium">New Blog Post</span>
+            </Link>
+            <Link
+              to="/admin/articles/new"
+              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <BookOpen className="w-5 h-5 text-purple-600" />
+              <span className="font-medium">New Article</span>
+            </Link>
+            <Link
+              to="/admin/news/new"
+              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Newspaper className="w-5 h-5 text-green-600" />
+              <span className="font-medium">New News</span>
+            </Link>
+            <Link
+              to="/admin/jobs/new"
+              className="flex items-center gap-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Briefcase className="w-5 h-5 text-orange-600" />
+              <span className="font-medium">New Job</span>
+            </Link>
+          </div>
         </div>
       </div>
     </AdminLayout>

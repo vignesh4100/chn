@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { getAllBlogPosts } from '../services/blogService';
-import { BlogPost } from '../types/blog';
-import { Calendar, User, ArrowRight, Search } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { blogService } from '../services/cmsService';
+import { BlogPost } from '../types/cms';
+import { Calendar, User, ArrowRight, Search, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
@@ -17,8 +16,8 @@ const Blog: React.FC = () => {
 
   const loadPosts = async () => {
     try {
-      const blogPosts = await getAllBlogPosts();
-      setPosts(blogPosts);
+      const blogPosts = await blogService.getAll(true); // Only published posts
+      setPosts(blogPosts as BlogPost[]);
     } catch (error) {
       console.error('Error loading posts:', error);
     } finally {
@@ -28,7 +27,8 @@ const Blog: React.FC = () => {
 
   const filteredPosts = posts.filter(post =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    post.author.toLowerCase().includes(searchTerm.toLowerCase())
+    post.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (post.tags && post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
   );
 
   return (
@@ -96,6 +96,13 @@ const Blog: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      {post.category && (
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            {post.category}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   )}
                   
@@ -103,6 +110,12 @@ const Blog: React.FC = () => {
                     <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors line-clamp-2">
                       {post.title}
                     </h2>
+                    
+                    {post.excerpt && (
+                      <p className="text-gray-600 mb-4 line-clamp-2">
+                        {post.excerpt}
+                      </p>
+                    )}
                     
                     <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
                       <span className="flex items-center gap-1">
@@ -115,12 +128,19 @@ const Blog: React.FC = () => {
                       </span>
                     </div>
                     
-                    <div 
-                      className="text-gray-600 mb-4 line-clamp-3"
-                      dangerouslySetInnerHTML={{ 
-                        __html: post.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...' 
-                      }}
-                    />
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.slice(0, 3).map((tag, index) => (
+                          <span
+                            key={index}
+                            className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs flex items-center gap-1"
+                          >
+                            <Tag className="w-3 h-3" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     
                     <Link
                       to={`/blogs/${post.slug}`}

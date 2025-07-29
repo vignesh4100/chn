@@ -29,8 +29,8 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
-import NewPost from './pages/admin/NewPost';
-import EditPost from './pages/admin/EditPost';
+import ContentList from './pages/admin/ContentList';
+import ContentEditorPage from './pages/admin/ContentEditor';
 
 const AppContent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,12 +69,13 @@ const AppContent: React.FC = () => {
         <Route path="/consulting/training" element={<TrainingDevelopment onOpenModal={() => setIsModalOpen(true)}/>} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blogs" element={<Blog />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/new" element={<NewPost />} />
-        <Route path="/admin/edit/:id" element={<EditPost />} />
+        <Route path="/admin/:contentType" element={<ContentList />} />
+        <Route path="/admin/:contentType/new" element={<ContentEditorPage />} />
+        <Route path="/admin/:contentType/edit/:id" element={<ContentEditorPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       </Routes>
