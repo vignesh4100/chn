@@ -18,8 +18,9 @@ const Blog: React.FC = () => {
 
   const loadPosts = async () => {
     try {
-      const blogPosts = await blogService.getAll(true); // Only published posts
-      setPosts(blogPosts as BlogPost[]);
+      const allPosts = await blogService.getAll(); // Get all posts
+      const publishedPosts = allPosts.filter(post => post.published); // Filter published posts
+      setPosts(publishedPosts as BlogPost[]);
     } catch (error) {
       console.error('Error loading posts:', error);
     } finally {
