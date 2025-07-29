@@ -22,11 +22,11 @@ import DataAnalyticsVisualization from './pages/DataAnalyticsVisualization';
 import AutomationDigitalTransformation from './pages/AutomationDigitalTransformation';
 import TrainingDevelopment from './pages/TrainingDevelopment';
 import Careers from './pages/Careers';
-import Blog from './pages/Blog';
 import BlogList from './components/admin/BlogList';
 import Modal from './components/Modal';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
+import Blog from './pages/Blog';
 
 function App() {
 
