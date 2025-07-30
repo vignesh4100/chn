@@ -86,13 +86,14 @@ const Navbar: React.FC = () => {
                 ) : (
                   <>
                     <button
-                      className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
-                        ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
-                        : 'text-white hover:text-cyan-300 hover:bg-white/10'}`}
-                    >
-                      {item.name}
-                      <ChevronDown className="w-4 h-4 transition-transform group-hover/menu:rotate-180" />
-                    </button>
+  className={`flex items-center gap-1 px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
+    ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
+    : `${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'} hover:bg-white/10`}`}
+>
+  {item.name}
+  <ChevronDown className="w-4 h-4 transition-transform group-hover/menu:rotate-180" />
+</button>
+>
                     <div className="invisible opacity-0 group-hover/menu:visible group-hover/menu:opacity-100 transition-all duration-200 fixed left-0 right-0 top-20 bg-white shadow-md border-t border-gray-200 z-40 py-6 px-6">
                       <div className="max-w-7xl mx-auto grid grid-cols-3 gap-6">
                         {item.name === 'Technology' && (
