@@ -74,14 +74,15 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <div key={item.name} className={`relative ${item.isDropdown ? 'group/menu' : ''}`}>
                 {!item.isDropdown ? (
-                  <Link
-                    to={item.path}
-                    className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
-                      ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
-                      : 'text-white hover:text-cyan-300 hover:bg-white/10'}`}
-                  >
-                    {item.name}
-                  </Link>
+<Link
+  to={item.path}
+  className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${isActivePath(item.path)
+    ? 'text-cyan-400 bg-cyan-500/20 backdrop-blur-sm'
+    : `${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'} hover:bg-white/10`}`}
+>
+  {item.name}
+</Link>
+
                 ) : (
                   <>
                     <button
