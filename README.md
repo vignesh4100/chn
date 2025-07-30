@@ -1,5 +1,68 @@
 # CHN Technologies Blog Admin Panel
 
+## Firebase Hosting Setup
+
+### Prerequisites
+1. Install Firebase CLI globally:
+   ```bash
+   npm install -g firebase-tools
+   ```
+
+2. Login to Firebase:
+   ```bash
+   firebase login
+   ```
+
+### Deployment Steps
+
+1. **Initialize Firebase Project** (if not already done):
+   ```bash
+   firebase init hosting
+   ```
+   - Select your Firebase project
+   - Set public directory to `dist`
+   - Configure as single-page app: Yes
+   - Don't overwrite index.html: No
+
+2. **Update Project ID**:
+   - Edit `.firebaserc` and replace `"your-project-id"` with your actual Firebase project ID
+
+3. **Build and Deploy**:
+   ```bash
+   npm run deploy
+   ```
+   
+   Or deploy only hosting:
+   ```bash
+   npm run deploy:hosting
+   ```
+
+4. **Quick Deploy** (after initial setup):
+   ```bash
+   firebase deploy --only hosting
+   ```
+
+### Firebase Project Configuration
+
+Make sure your Firebase project has:
+- ✅ Hosting enabled
+- ✅ Firestore Database enabled (for blog/CMS functionality)
+- ✅ Authentication enabled (for admin access)
+- ✅ Storage enabled (if using file uploads)
+
+### Custom Domain (Optional)
+
+To add a custom domain:
+1. Go to Firebase Console → Hosting
+2. Click "Add custom domain"
+3. Follow the DNS configuration steps
+
+### Environment Variables
+
+For production deployment, make sure to:
+1. Update `src/config/firebase.ts` with your production Firebase config
+2. Update `src/config/cloudinary.ts` with your production Cloudinary settings
+
 ## Setup Instructions
 
 ### 1. Firebase Configuration
