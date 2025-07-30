@@ -43,7 +43,7 @@ const Blog: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-white hero-heading mb-6">
+            <h1 className="text-5xl md:text-6xl leading-[1.3] font-bold text-white hero-heading mb-6">
               <span className="block">Our</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 animate-gradient-x">
                 Blog
