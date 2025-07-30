@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
   {item.name}
   <ChevronDown className="w-4 h-4 transition-transform group-hover/menu:rotate-180" />
 </button>
->
+
                     <div className="invisible opacity-0 group-hover/menu:visible group-hover/menu:opacity-100 transition-all duration-200 fixed left-0 right-0 top-20 bg-white shadow-md border-t border-gray-200 z-40 py-6 px-6">
                       <div className="max-w-7xl mx-auto grid grid-cols-3 gap-6">
                         {item.name === 'Technology' && (
