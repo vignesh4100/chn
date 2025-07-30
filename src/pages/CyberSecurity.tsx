@@ -208,7 +208,7 @@ const CyberSecurity: React.FC = () => {
                 <span className="text-red-200 text-sm font-medium">Advanced Cyber Security</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Cyber</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-300 to-yellow-300 animate-gradient-x">
                   Security

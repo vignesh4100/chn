@@ -255,7 +255,7 @@ const DataAnalyticsVisualization: React.FC = () => {
                 <span className="text-blue-200 text-sm font-medium">Analytics & Data Visualization Excellence</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Analytics &</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-purple-300 animate-gradient-x">
                   Data Visualization

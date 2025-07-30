@@ -196,7 +196,7 @@ const DigitalSolutions: React.FC = ({ onOpenModal }) => {
               <span className="text-indigo-200 text-sm font-medium">Digital Solutions Excellence</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Digital Solutions</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 animate-gradient-x">
                 for Business Growth

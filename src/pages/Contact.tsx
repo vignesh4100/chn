@@ -152,7 +152,7 @@ const Contact: React.FC = () => {
               <span className="text-cyan-200 text-sm font-medium">Contact Us</span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Let's Build the</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-cyan-300 via-purple-300 to-pink-300 animate-gradient-x">
                 Right Solution

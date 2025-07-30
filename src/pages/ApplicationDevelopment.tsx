@@ -255,7 +255,7 @@ const ApplicationDevelopment: React.FC = ({ onOpenModal }) => {
                 <span className="text-purple-200 text-sm font-medium">Application Development Excellence</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Application</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 animate-gradient-x">
                   Development

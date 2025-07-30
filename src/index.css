@@ -143,6 +143,15 @@
     }
   }
   
+  /* Fix for hero heading line height to prevent text overlap */
+  .hero-heading {
+    line-height: 1.1 !important;
+  }
+  
+  .hero-heading-large {
+    line-height: 1.15 !important;
+  }
+  
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

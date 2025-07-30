@@ -76,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 <span className="text-cyan-700 text-sm font-medium">Next-Gen Technology Solutions</span>
               </div> */}
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 mt-10">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6 mt-10">
                 <span className="block">Empowering</span>
                 <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-500 animate-gradient-x">
                   Digital Future
