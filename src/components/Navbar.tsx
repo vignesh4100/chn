@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
               className="w-24 sm:w-[100px]"
             />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-gray-900 block">CHN Technologies</span>
+              <span className={`text-xl font-bold ${isScrolled ? 'text-white' : 'text-gray-800'} block `}>CHN Technologies</span>
               <span className="text-xs text-cyan-600">Empowering Digital Future</span>
             </div>
           </div>
