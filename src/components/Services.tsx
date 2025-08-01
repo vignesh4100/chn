@@ -121,6 +121,7 @@ const Services: React.FC = ({ onOpenModal }) => {
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full px-6 py-2 mb-8">
             <Zap className="w-4 h-4 text-cyan-400 animate-pulse" />
             <span className="text-cyan-300 text-sm font-medium">Revolutionary Services</span>
+          </div>
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-700/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-6 py-2 mb-8">
             <Zap className="w-4 h-4 text-blue-400 animate-pulse" />
             <span className="text-blue-300 text-sm font-medium">Revolutionary Services</span>
@@ -129,6 +130,7 @@ const Services: React.FC = ({ onOpenModal }) => {
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Next-Generation{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-gradient-x">
+            </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
               Tech Solutions
             </span>
@@ -223,6 +225,7 @@ const Services: React.FC = ({ onOpenModal }) => {
             <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Business?</h3>
             <p className="text-slate-400 mb-6">Let's discuss how our AI-powered solutions can revolutionize your operations</p>
             <button onClick={onOpenModal} className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center gap-2 mx-auto">
+            </button>
             <button onClick={onOpenModal} className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-2 mx-auto">
               <span>Start Your Journey</span>
               <ArrowRight className="w-5 h-5" />
