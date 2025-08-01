@@ -3,6 +3,20 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        'brand': {
+          50: '#e6f2ff',
+          100: '#b3d9ff',
+          200: '#80c0ff',
+          300: '#4da6ff',
+          400: '#1a8cff',
+          500: '#0065B3',
+          600: '#005299',
+          700: '#003f80',
+          800: '#002b66',
+          900: '#00184d',
+        }
+      },
       animation: {
         'gradient-x': 'gradient-x 15s ease infinite',
         'gradient-y': 'gradient-y 15s ease infinite',

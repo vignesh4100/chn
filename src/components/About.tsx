@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   const stats = [
-    { icon: Award, value: '3+', label: 'Years Innovation', color: 'from-cyan-500 to-blue-500' },
-    { icon: Users, value: '100+', label: 'Global Clients', color: 'from-purple-500 to-pink-500' },
-    { icon: TrendingUp, value: '99%', label: 'Success Rate', color: 'from-green-500 to-teal-500' },
-    { icon: Shield, value: '24/7', label: 'AI Support', color: 'from-orange-500 to-red-500' },
+    { icon: Award, value: '3+', label: 'Years Innovation', color: 'from-blue-500 to-blue-700' },
+    { icon: Users, value: '100+', label: 'Global Clients', color: 'from-blue-400 to-blue-600' },
+    { icon: TrendingUp, value: '99%', label: 'Success Rate', color: 'from-blue-600 to-blue-800' },
+    { icon: Shield, value: '24/7', label: 'AI Support', color: 'from-blue-300 to-blue-500' },
   ];
 
   const features = [
@@ -31,15 +31,20 @@ const About: React.FC = () => {
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full px-6 py-2 mb-8">
             <Brain className="w-4 h-4 text-cyan-400 animate-pulse" />
             <span className="text-cyan-300 text-sm font-medium">About Our Innovation</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-700/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-6 py-2 mb-8">
+            <Brain className="w-4 h-4 text-blue-400 animate-pulse" />
+            <span className="text-blue-300 text-sm font-medium">About Our Innovation</span>
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Pioneering the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
               Digital Revolution
             </span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
@@ -47,6 +52,7 @@ const About: React.FC = () => {
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Transforming Tomorrow with{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
                 AI & Innovation
               </span>
             </h3>
@@ -78,6 +84,7 @@ const About: React.FC = () => {
             
             <div className="pt-6">
               <Link to='/about' className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center gap-2">
+              <Link to='/about' className="group bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-2">
                 <span>Discover Our Journey</span>
                 <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
