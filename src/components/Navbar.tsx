@@ -127,14 +127,17 @@ const Navbar: React.FC = () => {
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Workforce Management</h3>
                               <p className="text-gray-600 mb-2">Build high-performing teams and reduce hiring overhead.</p>
+                              <Link to="/consulting/workforce" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Payroll & Compliance</h3>
                               <p className="text-gray-600 mb-2">Error-free payroll with expert support and structured systems.</p>
+                              <Link to="/consulting/payroll" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Training & Development</h3>
                               <p className="text-gray-600 mb-2">Custom learning programs aligned with business goals.</p>
+                              <Link to="/consulting/training" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                           </>
                         )}
