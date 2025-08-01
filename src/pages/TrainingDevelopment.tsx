@@ -213,7 +213,7 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
       {/* Hero Section - Parallax Effect with Animated Elements */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background with Parallax Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900 via-orange-900 to-amber-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
           {/* Animated Learning Elements */}
           <div className="absolute inset-0">
             {/* Books */}
@@ -248,7 +248,7 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
               
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
                 <span className="block">Empower Your Team</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 pb-2 via-orange-300 to-yellow-300 animate-gradient-x">
+               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 pb-2 via-brand-400 to-brand-500 animate-gradient-x">
                   with Strategic Learning
                 </span>
               </h1>
@@ -260,6 +260,7 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
               
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <button onClick={onOpenModal} className="group bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/25 flex items-center justify-center gap-2">
+               <button onClick={onOpenModal} className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2">
                   <span>Turn Training into Transformation</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>

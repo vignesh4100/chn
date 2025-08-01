@@ -157,7 +157,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
       {/* Hero Section - Asymmetric Layout with Overlapping Elements */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Background Gradient with Mesh */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
           {/* Mesh Grid Pattern */}
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
@@ -208,7 +208,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
                   
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                     <span className="block">Hire Smarter.</span>
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 animate-gradient-x">
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
                       Scale Faster.
                     </span>
                     <span className="block">Stay Compliant.</span>
@@ -220,7 +220,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
                   </p>
                   
                   <div className="flex flex-wrap gap-4">
-                    <button onClick={onOpenModal} className="group bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 flex items-center gap-2">
+                    <button onClick={onOpenModal} className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-brand-500/25 flex items-center gap-2">
                       <span>Build Your Future Workforce</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
