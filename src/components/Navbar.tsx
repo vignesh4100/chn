@@ -101,6 +101,9 @@ const Navbar: React.FC = () => {
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">IT Infrastructure</h3>
                               <ul className="space-y-1">
+                                <li><Link to="/network-management" className="text-gray-600 hover:text-cyan-600">Network Management</Link></li>
+                                <li><Link to="/end-user-computing" className="text-gray-600 hover:text-cyan-600">End User Computing</Link></li>
+                                <li><Link to="/cyber-security" className="text-gray-600 hover:text-cyan-600">Cyber Security</Link></li>
                                 <li><Link to="/network-management" className="text-gray-600 hover:text-blue-600">Network Management</Link></li>
                                 <li><Link to="/end-user-computing" className="text-gray-600 hover:text-blue-600">End User Computing</Link></li>
                                 <li><Link to="/cyber-security" className="text-gray-600 hover:text-blue-600">Cyber Security</Link></li>
@@ -109,6 +112,8 @@ const Navbar: React.FC = () => {
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Software Solutions</h3>
                               <ul className="space-y-1">
+                                <li><Link to="/web-design-development" className="text-gray-600 hover:text-cyan-600">Web Design & Development</Link></li>
+                                <li><Link to="/application-development" className="text-gray-600 hover:text-cyan-600">Application Development</Link></li>
                                 <li><Link to="/web-design-development" className="text-gray-600 hover:text-blue-600">Web Design & Development</Link></li>
                                 <li><Link to="/application-development" className="text-gray-600 hover:text-blue-600">Application Development</Link></li>
                               </ul>
@@ -116,6 +121,8 @@ const Navbar: React.FC = () => {
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Digital Solutions</h3>
                               <ul className="space-y-1">
+                                <li><Link to="/data-analytics-visualization" className="text-gray-600 hover:text-cyan-600">Data Analytics</Link></li>
+                                <li><Link to="/automation-digital-transformation" className="text-gray-600 hover:text-cyan-600">Automation</Link></li>
                                 <li><Link to="/data-analytics-visualization" className="text-gray-600 hover:text-blue-600">Data Analytics</Link></li>
                                 <li><Link to="/automation-digital-transformation" className="text-gray-600 hover:text-blue-600">Automation</Link></li>
                               </ul>
@@ -127,16 +134,19 @@ const Navbar: React.FC = () => {
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Workforce Management</h3>
                               <p className="text-gray-600 mb-2">Build high-performing teams and reduce hiring overhead.</p>
+                              <Link to="/consulting/workforce" className="text-cyan-600 font-medium hover:underline">Learn more</Link>
                               <Link to="/consulting/workforce" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Payroll & Compliance</h3>
                               <p className="text-gray-600 mb-2">Error-free payroll with expert support and structured systems.</p>
+                              <Link to="/consulting/payroll" className="text-cyan-600 font-medium hover:underline">Learn more</Link>
                               <Link to="/consulting/payroll" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                             <div>
                               <h3 className="text-lg font-semibold text-gray-900 mb-2">Training & Development</h3>
                               <p className="text-gray-600 mb-2">Custom learning programs aligned with business goals.</p>
+                              <Link to="/consulting/training" className="text-cyan-600 font-medium hover:underline">Learn more</Link>
                               <Link to="/consulting/training" className="text-blue-600 font-medium hover:underline">Learn more</Link>
                             </div>
                           </>
@@ -195,6 +205,13 @@ const Navbar: React.FC = () => {
                   <span className="block px-4 py-2 text-gray-800 font-semibold">{item.name}</span>
                   {item.name === 'Technology' && (
                     <div className="pl-6 space-y-1">
+                      <Link to="/network-management" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Network Management</Link>
+                      <Link to="/end-user-computing" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">End User Computing</Link>
+                      <Link to="/cyber-security" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Cyber Security</Link>
+                      <Link to="/web-design-development" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Web Design & Development</Link>
+                      <Link to="/application-development" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Application Development</Link>
+                      <Link to="/data-analytics-visualization" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Data Analytics</Link>
+                      <Link to="/automation-digital-transformation" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Automation</Link>
                       <Link to="/network-management" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">Network Management</Link>
                       <Link to="/end-user-computing" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">End User Computing</Link>
                       <Link to="/cyber-security" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">Cyber Security</Link>
@@ -206,6 +223,9 @@ const Navbar: React.FC = () => {
                   )}
                   {item.name === 'Consulting' && (
                     <div className="pl-6 space-y-1">
+                      <Link to="/consulting/workforce" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Workforce Management</Link>
+                      <Link to="/consulting/payroll" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Payroll & Compliance</Link>
+                      <Link to="/consulting/training" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-cyan-600">Training & Development</Link>
                       <Link to="/consulting/workforce" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">Workforce Management</Link>
                       <Link to="/consulting/payroll" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">Payroll & Compliance</Link>
                       <Link to="/consulting/training" onClick={() => setIsOpen(false)} className="block text-gray-600 hover:text-blue-600">Training & Development</Link>
@@ -217,6 +237,7 @@ const Navbar: React.FC = () => {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
+              className="block bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               className="block bg-gradient-to-r from-blue-500 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Get Started
