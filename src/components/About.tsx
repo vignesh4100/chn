@@ -29,23 +29,16 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-sm border border-cyan-500/20 rounded-full px-6 py-2 mb-8">
-            <Brain className="w-4 h-4 text-cyan-400 animate-pulse" />
-            <span className="text-cyan-300 text-sm font-medium">About Our Innovation</span>
-          </div>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-700/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-6 py-2 mb-8">
             <Brain className="w-4 h-4 text-brand-400 animate-pulse" />
             <span className="text-brand-300 text-sm font-medium">About Our Innovation</span>
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Pioneering the{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-gradient-x">
-            </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-600 to-brand-800 animate-gradient-x">
               Digital Revolution
             </span>
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
           <div className="w-32 h-1 bg-gradient-to-r from-brand-500 to-brand-700 mx-auto mb-8 rounded-full"></div>
         </div>
 
@@ -53,8 +46,6 @@ const About: React.FC = () => {
           <div className="space-y-8">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Transforming Tomorrow with{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
-              </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">
                 AI & Innovation
               </span>
@@ -86,8 +77,6 @@ const About: React.FC = () => {
             </div>
             
             <div className="pt-6">
-              <Link to='/about' className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center gap-2">
-              </Link>
               <Link to='/about' className="group bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-2">
                 <span>Discover Our Journey</span>
                 <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

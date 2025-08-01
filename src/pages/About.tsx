@@ -74,8 +74,8 @@ const About: React.FC = ({ onOpenModal }) => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Dynamic Geometric Background */}
         <div className="absolute inset-0">
-          {/* Animated Mesh Gradient */}
-          <div className="absolute inset-0 animate-gradient-x"></div>
+          {/* Blue Theme Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900"></div>
           
           {/* Geometric Shapes */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
@@ -89,30 +89,30 @@ const About: React.FC = ({ onOpenModal }) => {
             
             {/* Floating Tech Icons */}
             <div className="absolute top-32 left-1/4 animate-float opacity-20">
-              <Cpu className="w-12 h-12 text-cyan-400" />
+              <Cpu className="w-12 h-12 text-brand-400" />
             </div>
             <div className="absolute top-48 right-1/3 animate-float opacity-20" style={{ animationDelay: '1s' }}>
-              <Database className="w-10 h-10 text-purple-400" />
+              <Database className="w-10 h-10 text-brand-500" />
             </div>
             <div className="absolute bottom-32 left-1/3 animate-float opacity-20" style={{ animationDelay: '2s' }}>
-              <Code className="w-14 h-14 text-pink-400" />
+              <Code className="w-14 h-14 text-brand-600" />
             </div>
             <div className="absolute bottom-48 right-1/4 animate-float opacity-20" style={{ animationDelay: '0.5s' }}>
-              <Cloud className="w-11 h-11 text-cyan-400" />
+              <Cloud className="w-11 h-11 text-brand-400" />
             </div>
             
             {/* Diagonal Lines */}
             <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent transform -rotate-12"></div>
-              <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent transform rotate-12"></div>
-              <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-400/30 to-transparent transform -rotate-12"></div>
+              <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-400/30 to-transparent transform -rotate-12"></div>
+              <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent transform rotate-12"></div>
+              <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-600/30 to-transparent transform -rotate-12"></div>
             </div>
             
             {/* Particle System */}
             {[...Array(15)].map((_, i) => (
               <div
                 key={i}
-                className="absolute w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-float opacity-40"
+                className="absolute w-2 h-2 bg-gradient-to-r from-brand-400 to-brand-600 rounded-full animate-float opacity-40"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
@@ -130,8 +130,8 @@ const About: React.FC = ({ onOpenModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
-              <Zap className="w-4 h-4 text-cyan-300 animate-pulse" />
-              <span className="text-cyan-200 text-sm font-medium">About CHN Technologies</span>
+              <Zap className="w-4 h-4 text-brand-300 animate-pulse" />
+              <span className="text-brand-200 text-sm font-medium">About CHN Technologies</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
