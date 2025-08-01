@@ -75,7 +75,7 @@ const About: React.FC = ({ onOpenModal }) => {
         {/* Dynamic Geometric Background */}
         <div className="absolute inset-0">
           {/* Animated Mesh Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 animate-gradient-x"></div>
+          <div className="absolute inset-0 animate-gradient-x"></div>
           
           {/* Geometric Shapes */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
