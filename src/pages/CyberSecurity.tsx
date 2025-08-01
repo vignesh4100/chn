@@ -134,7 +134,7 @@ const CyberSecurity: React.FC = () => {
       {/* Hero Section - Advanced Security Layout */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Cybersecurity Matrix Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-red-900 to-orange-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
           {/* Security Grid Pattern */}
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
@@ -210,7 +210,7 @@ const CyberSecurity: React.FC = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Cyber</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-300 pb-2 to-yellow-300 animate-gradient-x">
+               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 pb-2 to-brand-500 animate-gradient-x">
                   Security
                 </span>
               </h1>
@@ -230,7 +230,7 @@ const CyberSecurity: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <a
                   href="tel:+917010203031"
-                  className="group bg-gradient-to-r from-red-500 to-orange-600 hover:from-red-400 hover:to-orange-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/25 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Consult Our Cyber Experts</span>

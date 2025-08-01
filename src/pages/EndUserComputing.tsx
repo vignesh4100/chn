@@ -124,7 +124,7 @@ const EndUserComputing: React.FC = () => {
       {/* Hero Section - Modern Split Layout */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Advanced Tech Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
           {/* Digital Workspace Pattern */}
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
@@ -201,7 +201,7 @@ const EndUserComputing: React.FC = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">End User</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 pb-2 to-cyan-300 animate-gradient-x">
+               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 pb-2 to-brand-500 animate-gradient-x">
                   Computing
                 </span>
                 <span className="block text-2xl md:text-3xl font-semibold text-slate-200 mt-4">
@@ -224,7 +224,7 @@ const EndUserComputing: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <a
                   href="tel:+917010203031"
-                  className="group bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-400 hover:to-pink-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2"
                 >
                   <Phone className="w-5 h-5" />
                   <span>Talk to Our EUC Specialists</span>

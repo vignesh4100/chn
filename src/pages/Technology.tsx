@@ -48,7 +48,7 @@ const Technology: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
           
           {/* Floating Tech Icons */}
@@ -74,7 +74,7 @@ const Technology: React.FC = () => {
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
               <span className="block">Cutting-Edge</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 animate-gradient-x">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
                 Technology Solutions
               </span>
               <span className="block">for Modern Business</span>
@@ -94,7 +94,7 @@ const Technology: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Our Technology{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-700">
                 Expertise
               </span>
             </h2>
