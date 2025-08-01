@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             className="flex items-center space-x-3 group cursor-pointer"
           >
             <img
-              src="https://chnindia.com/assets/images/CHN-logo.png"
+              src="/chn-logo.png"
               alt="CHN Logo"
               className="w-24 sm:w-[100px]"
             />
