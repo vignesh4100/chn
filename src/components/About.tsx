@@ -18,7 +18,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-blue-900 to-brand-800 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)] animate-pulse"></div>
       
@@ -33,20 +33,20 @@ const About: React.FC = () => {
             <span className="text-cyan-300 text-sm font-medium">About Our Innovation</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-blue-700/10 backdrop-blur-sm border border-blue-500/20 rounded-full px-6 py-2 mb-8">
-            <Brain className="w-4 h-4 text-blue-400 animate-pulse" />
-            <span className="text-blue-300 text-sm font-medium">About Our Innovation</span>
+            <Brain className="w-4 h-4 text-brand-400 animate-pulse" />
+            <span className="text-brand-300 text-sm font-medium">About Our Innovation</span>
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Pioneering the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-gradient-x">
             </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-600 to-brand-800 animate-gradient-x">
               Digital Revolution
             </span>
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto mb-8 rounded-full"></div>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8 rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-brand-500 to-brand-700 mx-auto mb-8 rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
@@ -55,7 +55,7 @@ const About: React.FC = () => {
               Transforming Tomorrow with{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
               </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-brand-600">
                 AI & Innovation
               </span>
             </h3>

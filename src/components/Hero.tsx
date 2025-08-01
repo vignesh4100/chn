@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-blue-900 via-brand-800 to-blue-900 overflow-hidden">
       {/* Optional: Light Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
 
@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6 mt-10">
                 <span className="block">Empowering</span>
-                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-brand-400 via-brand-500 to-brand-700 animate-gradient-x">
                   Digital Future
                 </span>
                 <span className="block">with AI & Tech</span>
@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={onOpenModal}
-                  className="group relative bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 overflow-hidden"
+                  className="group relative bg-gradient-to-r from-brand-600 to-brand-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative">Start Your Transformation</span>
@@ -108,15 +108,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto lg:mx-0">
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">100+</div>
+                  <div className="text-3xl font-bold text-brand-400 mb-1">100+</div>
                   <div className="text-slate-300 text-sm">Projects</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-500 mb-1">99%</div>
+                  <div className="text-3xl font-bold text-brand-500 mb-1">99%</div>
                   <div className="text-slate-300 text-sm">Success Rate</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">24/7</div>
+                  <div className="text-3xl font-bold text-brand-600 mb-1">24/7</div>
                   <div className="text-slate-300 text-sm">Support</div>
                 </div>
               </div>
