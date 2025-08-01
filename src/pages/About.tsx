@@ -73,7 +73,7 @@ const About: React.FC = ({ onOpenModal }) => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Dynamic Geometric Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
+        <div className="absolute inset-0">
           {/* Animated Mesh Gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 animate-gradient-x"></div>
           
