@@ -71,7 +71,7 @@ const About: React.FC = ({ onOpenModal }) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900 overflow-hidden">
         {/* Dynamic Geometric Background */}
         <div className="absolute inset-0">
           {/* Animated Mesh Gradient */}

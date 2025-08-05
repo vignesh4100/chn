@@ -233,31 +233,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
                       <span>Schedule a Call</span>
                     </a>
                   </div>
-                </div>
-                
-                {/* Floating Stats Card */}
-                <div className="absolute -bottom-10 -right-10 bg-gradient-to-br from-indigo-500/80 to-purple-600/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-xl w-64 transform hover:scale-105 transition-transform duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Users className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white text-xl font-bold">10,000+</div>
-                        <div className="text-indigo-200 text-xs">Placements</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                        <Award className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-white text-xl font-bold">95%</div>
-                        <div className="text-indigo-200 text-xs">Retention Rate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div>              
               </div>
             </div>
             
@@ -420,7 +396,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Why Choose{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                 CHN Technologies
               </span>
             </h2>
@@ -441,11 +417,11 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
                 <div className="absolute inset-0 bg-white border border-gray-200 shadow-lg rounded-3xl transform transition-all duration-500 group-hover:shadow-xl group-hover:border-purple-200 group-hover:-translate-y-2"></div>
                 
                 <div className="relative h-full flex flex-col items-center justify-center p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
                   
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-indigo-600 transition-all duration-300">
                     {benefit.title}
                   </h3>
                   
