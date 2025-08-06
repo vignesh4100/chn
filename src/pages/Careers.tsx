@@ -252,6 +252,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   Building the Future
                 </span>
                 <span className="block">of Tech & Talent</span>
+                </span>
               </h1>
 
               <p className="text-xl text-slate-200 mb-8 leading-relaxed">
