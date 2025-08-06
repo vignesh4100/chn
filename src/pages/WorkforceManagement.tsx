@@ -68,8 +68,8 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
         'Talent Pipelining & Workforce Planning',
         'Employer Branding & Candidate Experience Enhancement'
       ],
-      color: 'from-purple-500 to-pink-600',
-      bgColor: 'from-purple-500/10 to-pink-600/10',
+      color: 'from-blue-600 to-blue-800',
+      bgColor: 'from-blue-600/10 to-blue-800/10',
       image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -83,8 +83,8 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
         'Market Intelligence & Talent Mapping',
         'Leadership Assessment & Cultural Fit Evaluation'
       ],
-      color: 'from-amber-500 to-orange-600',
-      bgColor: 'from-amber-500/10 to-orange-600/10',
+      color: 'from-blue-700 to-blue-900',
+      bgColor: 'from-blue-700/10 to-blue-900/10',
       image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -100,8 +100,8 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
         'Risk & Compliance Management',
         'Talent Pool Development for Urgent Hiring'
       ],
-      color: 'from-emerald-500 to-teal-600',
-      bgColor: 'from-emerald-500/10 to-teal-600/10',
+      color: 'from-blue-400 to-blue-600',
+      bgColor: 'from-blue-400/10 to-blue-600/10',
       image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     }
   ];
@@ -135,21 +135,21 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
   ];
 
   const industries = [
-    { name: 'Information Technology', icon: Monitor, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Healthcare', icon: Heart, color: 'from-pink-500 to-red-500' },
-    { name: 'Manufacturing', icon: Layers, color: 'from-purple-500 to-indigo-500' },
-    { name: 'Finance & Banking', icon: Database, color: 'from-emerald-500 to-teal-500' },
-    { name: 'Retail & E-commerce', icon: Smartphone, color: 'from-orange-500 to-red-500' },
-    { name: 'Engineering', icon: Code, color: 'from-blue-500 to-indigo-500' },
-    { name: 'Telecom', icon: Cloud, color: 'from-cyan-500 to-blue-500' },
-    { name: 'Education', icon: Lightbulb, color: 'from-yellow-500 to-amber-500' }
+    { name: 'Information Technology', icon: Monitor, color: 'from-blue-500 to-blue-700' },
+    { name: 'Healthcare', icon: Heart, color: 'from-blue-600 to-blue-800' },
+    { name: 'Manufacturing', icon: Layers, color: 'from-blue-400 to-blue-600' },
+    { name: 'Finance & Banking', icon: Database, color: 'from-blue-700 to-blue-900' },
+    { name: 'Retail & E-commerce', icon: Smartphone, color: 'from-blue-300 to-blue-500' },
+    { name: 'Engineering', icon: Code, color: 'from-blue-500 to-blue-700' },
+    { name: 'Telecom', icon: Cloud, color: 'from-blue-600 to-blue-800' },
+    { name: 'Education', icon: Lightbulb, color: 'from-blue-400 to-blue-600' }
   ];
 
   const stats = [
-    { value: '500+', label: 'Clients Served', icon: Building, color: 'from-blue-400 to-indigo-500' },
-    { value: '10,000+', label: 'Successful Placements', icon: Users, color: 'from-purple-400 to-pink-500' },
-    { value: '95%', label: 'Retention Rate', icon: Award, color: 'from-emerald-400 to-teal-500' },
-    { value: '48 Hrs', label: 'Average Response Time', icon: Clock, color: 'from-amber-400 to-orange-500' }
+    { value: '500+', label: 'Clients Served', icon: Building, color: 'from-blue-400 to-blue-600' },
+    { value: '10,000+', label: 'Successful Placements', icon: Users, color: 'from-blue-500 to-blue-700' },
+    { value: '95%', label: 'Retention Rate', icon: Award, color: 'from-blue-600 to-blue-800' },
+    { value: '48 Hrs', label: 'Average Response Time', icon: Clock, color: 'from-blue-700 to-blue-900' }
   ];
 
   return (

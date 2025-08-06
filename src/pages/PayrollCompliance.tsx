@@ -57,8 +57,8 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
         'Full & final settlements',
         'Payroll inputs integration (attendance, overtime, leave)'
       ],
-      color: 'from-green-500 to-teal-600',
-      bgColor: 'from-green-500/10 to-teal-600/10',
+      color: 'from-blue-500 to-blue-700',
+      bgColor: 'from-blue-500/10 to-blue-700/10',
       image: 'https://images.pexels.com/photos/7821702/pexels-photo-7821702.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -72,8 +72,8 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
         'Leave management integration',
         'Real-time attendance dashboards & reports'
       ],
-      color: 'from-blue-500 to-indigo-600',
-      bgColor: 'from-blue-500/10 to-indigo-600/10',
+      color: 'from-blue-600 to-blue-800',
+      bgColor: 'from-blue-600/10 to-blue-800/10',
       image: 'https://images.pexels.com/photos/3760072/pexels-photo-3760072.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -87,8 +87,8 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
         'Labor law audits & inspections support',
         'Form 16, Form 24Q, and annual returns'
       ],
-      color: 'from-orange-500 to-red-600',
-      bgColor: 'from-orange-500/10 to-red-600/10',
+      color: 'from-blue-700 to-blue-900',
+      bgColor: 'from-blue-700/10 to-blue-900/10',
       image: 'https://images.pexels.com/photos/6863250/pexels-photo-6863250.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -102,8 +102,8 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
         'Workforce cost analysis',
         'Custom reporting and visualization'
       ],
-      color: 'from-purple-500 to-pink-600',
-      bgColor: 'from-purple-500/10 to-pink-600/10',
+      color: 'from-blue-400 to-blue-600',
+      bgColor: 'from-blue-400/10 to-blue-600/10',
       image: 'https://images.pexels.com/photos/7654118/pexels-photo-7654118.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     }
   ];
@@ -165,10 +165,10 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
   ];
 
   const stats = [
-    { value: '100%', label: 'Compliance Accuracy', icon: CheckSquare, color: 'from-green-400 to-teal-500' },
-    { value: '99.9%', label: 'Payroll Accuracy', icon: Calculator, color: 'from-blue-400 to-indigo-500' },
-    { value: '30%', label: 'Admin Time Saved', icon: Clock, color: 'from-purple-400 to-pink-500' },
-    { value: '0', label: 'Compliance Penalties', icon: Shield, color: 'from-orange-400 to-red-500' }
+    { value: '100%', label: 'Compliance Accuracy', icon: CheckSquare, color: 'from-blue-400 to-blue-600' },
+    { value: '99.9%', label: 'Payroll Accuracy', icon: Calculator, color: 'from-blue-500 to-blue-700' },
+    { value: '30%', label: 'Admin Time Saved', icon: Clock, color: 'from-blue-600 to-blue-800' },
+    { value: '0', label: 'Compliance Penalties', icon: Shield, color: 'from-blue-700 to-blue-900' }
   ];
 
   return (
