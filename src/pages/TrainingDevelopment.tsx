@@ -248,8 +248,7 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
               
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
                 <span className="block">Empower Your Team</span>
-               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 pb-2 via-brand-400 to-brand-500 animate-gradient-x">
-               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                   with Strategic Learning
                 </span>
               </h1>
