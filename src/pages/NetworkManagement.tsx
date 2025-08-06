@@ -176,6 +176,7 @@ const NetworkManagement: React.FC = () => {
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                   Management
                 </span>
+                </span>
               </h1>
               
               <div className="mb-8">
