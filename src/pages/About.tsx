@@ -137,6 +137,7 @@ const About: React.FC = ({ onOpenModal }) => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Empowering Enterprises with</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Smart Tech, Smarter Workforce
               </span>
               <span className="block">and Seamless Operations</span>
@@ -251,6 +252,7 @@ const About: React.FC = ({ onOpenModal }) => {
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Our{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-500 to-brand-600 animate-gradient-x">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Purpose & Direction
               </span>
             </h2>

@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6 mt-10">
                 <span className="block">Empowering</span>
-                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-brand-400 via-brand-500 to-brand-700 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                   Digital Future
                 </span>
                 <span className="block">with AI & Tech</span>

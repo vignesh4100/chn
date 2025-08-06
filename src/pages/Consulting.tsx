@@ -75,6 +75,7 @@ const Consulting: React.FC = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
               <span className="block">Strategic</span>
              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Business Consulting
               </span>
               <span className="block">for Growth</span>

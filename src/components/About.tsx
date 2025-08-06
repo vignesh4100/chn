@@ -29,7 +29,7 @@ const About: React.FC = () => {
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Pioneering the{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
-              Digital Revolution
+              Tech Solutions
             </span>
           </h2>
 

@@ -179,6 +179,7 @@ const ITInfrastructure: React.FC = ({ onOpenModal }) => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Reliable IT Infrastructure</span>
              <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1] from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Management
               </span>
               <span className="block">for Secure & Scalable Operations</span>

@@ -202,6 +202,7 @@ const EndUserComputing: React.FC = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">End User</span>
                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 pb-2 to-brand-500 animate-gradient-x">
+               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                   Computing
                 </span>
                 <span className="block text-2xl md:text-3xl font-semibold text-slate-200 mt-4">

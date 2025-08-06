@@ -248,6 +248,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <h1 className="text-5xl md:text-6xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Join a Team That's</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                   Building the Future
                 </span>
                 <span className="block">of Tech & Talent</span>
