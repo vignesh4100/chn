@@ -158,6 +158,7 @@ const Contact: React.FC = () => {
               <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Right Solution
               </span>
+              </span>
               <span className="block">for Your Business</span>
             </h1>
 
