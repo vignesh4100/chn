@@ -212,6 +212,7 @@ const WorkforceManagement: React.FC = ({ onOpenModal }) => {
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                       Scale Faster.
                     </span>
+                    </span>
                     <span className="block">Stay Compliant.</span>
                   </h1>
                   
