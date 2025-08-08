@@ -72,8 +72,8 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
         'Project management methodologies',
         'Team building & collaboration'
       ],
-      color: 'from-blue-500 to-blue-700',
-      bgColor: 'from-blue-500/10 to-blue-700/10',
+      color: 'from-amber-500 to-orange-600',
+      bgColor: 'from-amber-500/10 to-orange-600/10',
       image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -87,8 +87,8 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
         'Problem-solving & critical thinking',
         'Conflict resolution & negotiation'
       ],
-      color: 'from-blue-600 to-blue-800',
-      bgColor: 'from-blue-600/10 to-blue-800/10',
+      color: 'from-blue-500 to-indigo-600',
+      bgColor: 'from-blue-500/10 to-indigo-600/10',
       image: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -102,8 +102,8 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
         'On-site & virtual delivery options',
         'Self-paced & instructor-led formats'
       ],
-      color: 'from-blue-700 to-blue-900',
-      bgColor: 'from-blue-700/10 to-blue-900/10',
+      color: 'from-green-500 to-teal-600',
+      bgColor: 'from-green-500/10 to-teal-600/10',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -117,8 +117,8 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
         'Quality management programs',
         'Time management & prioritization'
       ],
-      color: 'from-blue-400 to-blue-600',
-      bgColor: 'from-blue-400/10 to-blue-600/10',
+      color: 'from-purple-500 to-pink-600',
+      bgColor: 'from-purple-500/10 to-pink-600/10',
       image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     },
     {
@@ -132,8 +132,8 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
         'Change management training',
         'Strategic thinking & decision making'
       ],
-      color: 'from-blue-300 to-blue-500',
-      bgColor: 'from-blue-300/10 to-blue-500/10',
+      color: 'from-cyan-500 to-blue-600',
+      bgColor: 'from-cyan-500/10 to-blue-600/10',
       image: 'https://images.pexels.com/photos/3184317/pexels-photo-3184317.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'
     }
   ];
@@ -171,41 +171,41 @@ const TrainingDevelopment: React.FC = ({ onOpenModal }) => {
       name: 'Organizations scaling up', 
       icon: Building, 
       description: 'Onboarding new teams efficiently',
-      color: 'from-blue-500 to-blue-700' 
+      color: 'from-amber-500 to-orange-500' 
     },
     { 
       name: 'Enterprises', 
       icon: Heart, 
       description: 'Boosting employee engagement and retention',
-      color: 'from-blue-600 to-blue-800' 
+      color: 'from-blue-500 to-indigo-500' 
     },
     { 
       name: 'HR leaders', 
       icon: Users, 
       description: 'Building a culture of continuous improvement',
-      color: 'from-blue-400 to-blue-600' 
+      color: 'from-green-500 to-teal-500' 
     },
     { 
       name: 'Managers', 
       icon: Briefcase, 
       description: 'Upskilling departments for evolving demands',
-      color: 'from-blue-700 to-blue-900' 
+      color: 'from-purple-500 to-pink-500' 
     }
   ];
 
   const trainingFormats = [
-    { name: 'Instructor-Led Workshops', icon: Presentation, color: 'from-blue-500 to-blue-700' },
-    { name: 'Virtual Live Training', icon: Video, color: 'from-blue-600 to-blue-800' },
-    { name: 'Self-Paced E-Learning', icon: Laptop, color: 'from-blue-400 to-blue-600' },
-    { name: 'Blended Learning', icon: Layers, color: 'from-blue-700 to-blue-900' },
-    { name: 'Coaching & Mentoring', icon: Handshake, color: 'from-blue-300 to-blue-500' }
+    { name: 'Instructor-Led Workshops', icon: Presentation, color: 'from-amber-500 to-orange-500' },
+    { name: 'Virtual Live Training', icon: Video, color: 'from-blue-500 to-indigo-500' },
+    { name: 'Self-Paced E-Learning', icon: Laptop, color: 'from-green-500 to-teal-500' },
+    { name: 'Blended Learning', icon: Layers, color: 'from-purple-500 to-pink-500' },
+    { name: 'Coaching & Mentoring', icon: Handshake, color: 'from-cyan-500 to-blue-500' }
   ];
 
   const stats = [
-    { value: '25,000+', label: 'Professionals Trained', icon: Users, color: 'from-blue-400 to-blue-600' },
-    { value: '98%', label: 'Satisfaction Rate', icon: Smile, color: 'from-blue-500 to-blue-700' },
-    { value: '35%', label: 'Avg. Performance Boost', icon: Gauge, color: 'from-blue-600 to-blue-800' },
-    { value: '200+', label: 'Training Programs', icon: BookOpen, color: 'from-blue-700 to-blue-900' }
+    { value: '25,000+', label: 'Professionals Trained', icon: Users, color: 'from-amber-400 to-orange-500' },
+    { value: '98%', label: 'Satisfaction Rate', icon: Smile, color: 'from-blue-400 to-indigo-500' },
+    { value: '35%', label: 'Avg. Performance Boost', icon: Gauge, color: 'from-green-400 to-teal-500' },
+    { value: '200+', label: 'Training Programs', icon: BookOpen, color: 'from-purple-400 to-pink-500' }
   ];
 
   return (
