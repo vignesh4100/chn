@@ -129,13 +129,13 @@ const Blog: React.FC = () => {
             {/* Left Content */}
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-2 mb-8">
-                <BookOpen className="w-4 h-4 text-blue-300 animate-pulse" />
-                <span className="text-blue-200 text-sm font-medium">Knowledge Hub</span>
+                <BookOpen className="w-4 h-4 text-indigo-300 animate-pulse" />
+                <span className="text-indigo-200 text-sm font-medium">Knowledge Hub</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Insights &</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 animate-gradient-x">
                   Innovation
                 </span>
                 <span className="block">Stories</span>
@@ -149,15 +149,15 @@ const Blog: React.FC = () => {
               {/* Blog Stats */}
               <div className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 mb-8">
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">{posts.length}+</div>
+                  <div className="text-3xl font-bold text-indigo-400 mb-1">{posts.length}+</div>
                   <div className="text-slate-400 text-sm">Articles</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-500 mb-1">5</div>
+                  <div className="text-3xl font-bold text-purple-400 mb-1">5</div>
                   <div className="text-slate-400 text-sm">Categories</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">Weekly</div>
+                  <div className="text-3xl font-bold text-pink-400 mb-1">Weekly</div>
                   <div className="text-slate-400 text-sm">Updates</div>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const Blog: React.FC = () => {
                   <h3 className="text-white font-semibold text-lg">Explore Our Content</h3>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-blue-400 text-sm">Live Updates</span>
+                    <span className="text-green-400 text-sm">Live Updates</span>
                   </div>
                 </div>
                 
@@ -195,7 +195,7 @@ const Blog: React.FC = () => {
                       <button
                         key={index}
                         onClick={() => setSearchTerm(topic.toLowerCase())}
-                        className="bg-white/10 hover:bg-white/20 text-slate-300 hover:text-blue-200 px-3 py-1.5 rounded-lg text-sm transition-all duration-200 border border-white/10 hover:border-blue-300/30"
+                        className="bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg text-sm transition-all duration-200 border border-white/10 hover:border-white/30"
                       >
                         {topic}
                       </button>
@@ -206,21 +206,21 @@ const Blog: React.FC = () => {
                 {/* Reading Stats */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-400 mb-1">{posts.length}</div>
+                    <div className="text-2xl font-bold text-indigo-400 mb-1">{posts.length}</div>
                     <div className="text-slate-400 text-xs">Total Articles</div>
                   </div>
                   <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-500 mb-1">5min</div>
+                    <div className="text-2xl font-bold text-purple-400 mb-1">5min</div>
                     <div className="text-slate-400 text-xs">Avg Read Time</div>
                   </div>
                 </div>
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl animate-spin-slow opacity-80 flex items-center justify-center">
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-indigo-400 to-purple-600 rounded-2xl animate-spin-slow opacity-80 flex items-center justify-center">
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl animate-bounce opacity-60 flex items-center justify-center">
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-600 rounded-xl animate-bounce opacity-60 flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
             </div>
@@ -250,9 +250,9 @@ const Blog: React.FC = () => {
               {filteredPosts.length > 0 && (
                 <div className="mb-16">
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-full px-4 py-2 mb-4">
-                      <Sparkles className="w-4 h-4 text-blue-600" />
-                      <span className="text-blue-700 text-sm font-medium">Featured Article</span>
+                    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-full px-4 py-2 mb-4">
+                      <Sparkles className="w-4 h-4 text-indigo-600" />
+                      <span className="text-indigo-700 text-sm font-medium">Featured Article</span>
                     </div>
                     <h2 className="text-3xl font-bold text-gray-900">Latest Insights</h2>
                   </div>
@@ -269,7 +269,7 @@ const Blog: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                           {filteredPosts[0].category && (
                             <div className="absolute top-6 left-6">
-                              <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                              <span className="bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-medium">
                                 {filteredPosts[0].category}
                               </span>
                             </div>
@@ -278,7 +278,7 @@ const Blog: React.FC = () => {
                       )}
                       
                       <div className="p-8 lg:p-12 flex flex-col justify-center">
-                        <h3 className="text-3xl font-bold text-gray-900 mb-4 hover:text-blue-600 transition-colors">
+                        <h3 className="text-3xl font-bold text-gray-900 mb-4 hover:text-indigo-600 transition-colors">
                           {filteredPosts[0].title}
                         </h3>
                         
@@ -312,7 +312,7 @@ const Blog: React.FC = () => {
                             {filteredPosts[0].tags.slice(0, 4).map((tag, index) => (
                               <span
                                 key={index}
-                                className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm flex items-center gap-1"
+                                className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm flex items-center gap-1"
                               >
                                 <Tag className="w-3 h-3" />
                                 {tag}
@@ -323,7 +323,7 @@ const Blog: React.FC = () => {
                         
                         <Link
                           to={`/blogs/${filteredPosts[0].slug}`}
-                          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                         >
                           Read Full Article
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -365,7 +365,7 @@ const Blog: React.FC = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                             {post.category && (
                               <div className="absolute top-4 left-4">
-                                <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                                   {post.category}
                                 </span>
                               </div>
@@ -377,7 +377,7 @@ const Blog: React.FC = () => {
                         )}
                         
                         <div className="p-6">
-                          <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                          <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-tight">
                             {post.title}
                           </h2>
                           
@@ -414,7 +414,7 @@ const Blog: React.FC = () => {
                           
                           <Link
                             to={`/blogs/${post.slug}`}
-                            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
+                            className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-semibold transition-colors group"
                           >
                             Read More
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -444,7 +444,7 @@ const Blog: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                       {post.category && (
                         <div className="absolute top-4 left-4">
-                          <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                          <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                             {post.category}
                           </span>
                         </div>
@@ -456,7 +456,7 @@ const Blog: React.FC = () => {
                   )}
                   
                   <div className="p-6">
-                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-tight">
                       {post.title}
                     </h2>
                     
@@ -493,7 +493,7 @@ const Blog: React.FC = () => {
                     
                     <Link
                       to={`/blogs/${post.slug}`}
-                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
+                      className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-semibold transition-colors group"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

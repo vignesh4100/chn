@@ -71,14 +71,14 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           <div className="flex-1 text-center lg:text-left mb-12 lg:mb-0">
             <div className="animate-fade-in-up">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-blue-100 border border-blue-200 rounded-full px-6 py-2 mb-8">
-                <Zap className="w-4 h-4 text-blue-600 animate-pulse" />
-                <span className="text-blue-700 text-sm font-medium">Next-Gen Technology Solutions</span>
-              </div>
+              {/* <div className="inline-flex items-center gap-2 bg-cyan-100 border border-cyan-200 rounded-full px-6 py-2 mb-8">
+                <Zap className="w-4 h-4 text-cyan-600 animate-pulse" />
+                <span className="text-cyan-700 text-sm font-medium">Next-Gen Technology Solutions</span>
+              </div> */}
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6 mt-10">
                 <span className="block">Empowering</span>
-                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text leading-[1.3] bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-500 animate-gradient-x">
                   Digital Future
                 </span>
                 <span className="block">with AI & Tech</span>
@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={onOpenModal}
-                  className="group relative bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 overflow-hidden"
+                  className="group relative bg-gradient-to-r from-cyan-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative">Start Your Transformation</span>
@@ -108,15 +108,15 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 mt-12 max-w-md mx-auto lg:mx-0">
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-400 mb-1">100+</div>
+                  <div className="text-3xl font-bold text-cyan-600 mb-1">100+</div>
                   <div className="text-slate-300 text-sm">Projects</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-500 mb-1">99%</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-1">99%</div>
                   <div className="text-slate-300 text-sm">Success Rate</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">24/7</div>
+                  <div className="text-3xl font-bold text-pink-500 mb-1">24/7</div>
                   <div className="text-slate-300 text-sm">Support</div>
                 </div>
               </div>
@@ -167,22 +167,22 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                   {/* Orbiting Icons */}
                   <div className="absolute inset-0 animate-spin-slow" style={{ animationDuration: '25s' }}>
                     <div className="absolute top-0 left-1/2 w-12 h-12 -translate-x-1/2 -translate-y-24">
-                      <div className="w-full h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-r from-cyan-500/80 to-blue-500/80 rounded-xl flex items-center justify-center">
                         <Cpu className="w-6 h-6 text-white" />
                       </div>
                     </div>
                     <div className="absolute bottom-0 left-1/2 w-12 h-12 -translate-x-1/2 translate-y-24">
-                      <div className="w-full h-full bg-gradient-to-r from-blue-600/80 to-blue-800/80 rounded-xl flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-xl flex items-center justify-center">
                         <Database className="w-6 h-6 text-white" />
                       </div>
                     </div>
                     <div className="absolute left-0 top-1/2 w-12 h-12 -translate-x-24 -translate-y-1/2">
-                      <div className="w-full h-full bg-gradient-to-r from-blue-400/80 to-blue-600/80 rounded-xl flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-r from-green-500/80 to-teal-500/80 rounded-xl flex items-center justify-center">
                         <Code className="w-6 h-6 text-white" />
                       </div>
                     </div>
                     <div className="absolute right-0 top-1/2 w-12 h-12 translate-x-24 -translate-y-1/2">
-                      <div className="w-full h-full bg-gradient-to-r from-blue-300/80 to-blue-500/80 rounded-xl flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-r from-amber-500/80 to-orange-500/80 rounded-xl flex items-center justify-center">
                         <Shield className="w-6 h-6 text-white" />
                       </div>
                     </div>
@@ -200,7 +200,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-1 h-3 bg-gradient-to-b from-cyan-500 to-purple-500 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
