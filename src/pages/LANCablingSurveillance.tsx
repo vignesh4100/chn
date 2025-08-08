@@ -224,7 +224,6 @@ const LANCablingSurveillance: React.FC = () => {
                   Surveillance
                 </span>
                 <span className="block">Systems</span>
-               </span>
               </h1>
               
               <div className="mb-8">
