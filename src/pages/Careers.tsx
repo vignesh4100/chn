@@ -189,7 +189,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       {/* Hero Section - Animated Gradient Background */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
           {/* Animated Mesh Grid */}
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -247,7 +247,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
               <h1 className="text-5xl md:text-6xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Join a Team That's</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 animate-gradient-x">
                   Building the Future
                 </span>
                 <span className="block">of Tech & Talent</span>
@@ -267,7 +267,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                       applicationForm.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/25 flex items-center justify-center gap-2"
                 >
                   <span>Apply Now</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

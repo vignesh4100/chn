@@ -178,7 +178,7 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
         {/* Video Background with Fallback Image */}
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.pexels.com/photos/7821702/pexels-photo-7821702.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop)' }}>
           {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-brand-800/90 to-brand-900/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-teal-900/90 to-green-900/90"></div>
           
           {/* Animated Overlay Pattern */}
           <div className="absolute inset-0">
@@ -213,7 +213,7 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
             
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
               <span className="block">Error-Free Payroll.</span>
-             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-teal-300 to-emerald-300 animate-gradient-x">
                 Total Compliance.
               </span>
               <span className="block">Peace of Mind.</span>
@@ -227,7 +227,6 @@ const PayrollCompliance: React.FC = ({ onOpenModal }) => {
             
             <div className="flex flex-wrap gap-4">
               <button onClick={onOpenModal} className="group bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-400 hover:to-teal-500 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 flex items-center justify-center gap-2">
-             <button onClick={onOpenModal} className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2">
                 <span>Schedule a Compliance Consultation</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>

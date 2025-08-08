@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Modern Tech Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
           {/* Animated Grid */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:60px_60px] animate-pulse"></div>
 
@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Let's Build the</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-cyan-300 via-purple-300 to-pink-300 animate-gradient-x">
                 Right Solution
               </span>
               <span className="block">for Your Business</span>
@@ -441,11 +441,11 @@ const Contact: React.FC = () => {
         {/* Background Effects */}
         <div className="absolute inset-0">
           {/* Animated Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(0,101,179,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,101,179,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(120,119,198,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(120,119,198,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
 
           {/* Glowing Orbs */}
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-brand-500/20 to-brand-600/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-brand-600/20 to-brand-700/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

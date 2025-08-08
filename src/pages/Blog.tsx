@@ -53,7 +53,7 @@ const Blog: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         {/* Advanced Blog Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-brand-800 to-brand-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
           {/* Blog Content Pattern */}
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
@@ -135,7 +135,7 @@ const Blog: React.FC = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Insights &</span>
-               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-500 to-brand-700 animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 animate-gradient-x">
                   Innovation
                 </span>
                 <span className="block">Stories</span>
@@ -149,15 +149,15 @@ const Blog: React.FC = () => {
               {/* Blog Stats */}
               <div className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 mb-8">
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-brand-400 mb-1">{posts.length}+</div>
+                  <div className="text-3xl font-bold text-blue-400 mb-1">{posts.length}+</div>
                   <div className="text-slate-400 text-sm">Articles</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-brand-500 mb-1">5</div>
+                  <div className="text-3xl font-bold text-blue-500 mb-1">5</div>
                   <div className="text-slate-400 text-sm">Categories</div>
                 </div>
                 <div className="text-center lg:text-left">
-                  <div className="text-3xl font-bold text-brand-600 mb-1">Weekly</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-1">Weekly</div>
                   <div className="text-slate-400 text-sm">Updates</div>
                 </div>
               </div>
