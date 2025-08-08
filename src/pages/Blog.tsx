@@ -135,7 +135,7 @@ const Blog: React.FC = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
                 <span className="block">Insights &</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
+               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-500 to-brand-700 animate-gradient-x">
                   Innovation
                 </span>
                 <span className="block">Stories</span>
@@ -429,78 +429,78 @@ const Blog: React.FC = () => {
               {/* Single Article Display */}
               {filteredPosts.length === 1 && (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {filteredPosts.map((post) => (
-                    <article
-                      key={post.id}
-                      className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-                    >
-                      {post.coverImage && (
-                        <div className="relative h-48 overflow-hidden">
-                          <img
-                            src={post.coverImage}
-                            alt={post.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                          {post.category && (
-                            <div className="absolute top-4 left-4">
-                              <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                                {post.category}
-                              </span>
-                            </div>
-                          )}
-                          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
-                            <Eye className="w-4 h-4 text-gray-600" />
-                          </div>
+              {filteredPosts.map((post) => (
+                <article
+                  key={post.id}
+                  className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                >
+                  {post.coverImage && (
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={post.coverImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      {post.category && (
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            {post.category}
+                          </span>
                         </div>
                       )}
-                      
-                      <div className="p-6">
-                        <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
-                          {post.title}
-                        </h2>
-                        
-                        {post.excerpt && (
-                          <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">
-                            {post.excerpt}
-                          </p>
-                        )}
-                        
-                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
-                          <span className="flex items-center gap-1">
-                            <User className="w-4 h-4" />
-                            {post.author}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {new Date(post.createdAt).toLocaleDateString()}
-                          </span>
-                        </div>
-                        
-                        {post.tags && post.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-2 mb-4">
-                            {post.tags.slice(0, 3).map((tag, index) => (
-                              <span
-                                key={index}
-                                className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs flex items-center gap-1"
-                              >
-                                <Tag className="w-3 h-3" />
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                        
-                        <Link
-                          to={`/blogs/${post.slug}`}
-                          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
-                        >
-                          Read More
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
+                        <Eye className="w-4 h-4 text-gray-600" />
                       </div>
-                    </article>
-                  ))}
+                    </div>
+                  )}
+                  
+                  <div className="p-6">
+                    <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                      {post.title}
+                    </h2>
+                    
+                    {post.excerpt && (
+                      <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+                        {post.excerpt}
+                      </p>
+                    )}
+                    
+                    <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                      <span className="flex items-center gap-1">
+                        <User className="w-4 h-4" />
+                        {post.author}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(post.createdAt).toLocaleDateString()}
+                      </span>
+                    </div>
+                    
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.slice(0, 3).map((tag, index) => (
+                          <span
+                            key={index}
+                            className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-xs flex items-center gap-1"
+                          >
+                            <Tag className="w-3 h-3" />
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <Link
+                      to={`/blogs/${post.slug}`}
+                      className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors group"
+                    >
+                      Read More
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
                 </div>
               )}
             </>

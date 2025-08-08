@@ -178,7 +178,7 @@ const ITInfrastructure: React.FC = ({ onOpenModal }) => {
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Reliable IT Infrastructure</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
+             <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1] from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
                 Management
               </span>
               <span className="block">for Secure & Scalable Operations</span>
@@ -206,6 +206,7 @@ const ITInfrastructure: React.FC = ({ onOpenModal }) => {
             </div>
             
             <Link to="/contact" className="group bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white w-auto max-w-80 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 flex items-center justify-center gap-2 mx-auto">
+            <Link to="/contact" className="group bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white w-auto max-w-80 px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-brand-500/25 flex items-center justify-center gap-2 mx-auto">
               <span>Speak to Our IT Experts</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>

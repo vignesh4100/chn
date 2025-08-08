@@ -155,9 +155,7 @@ const Contact: React.FC = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white hero-heading-large mb-6">
               <span className="block">Let's Build the</span>
               <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-brand-300 via-brand-400 to-brand-500 animate-gradient-x">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r leading-[1.3] from-blue-500 via-blue-600 to-blue-800 animate-gradient-x">
                 Right Solution
-              </span>
               </span>
               <span className="block">for Your Business</span>
             </h1>
